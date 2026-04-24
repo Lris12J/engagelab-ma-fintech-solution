@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EngageLab MA · 智能安防硬件（云订阅）行业增长方案</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f7f8fa;
+      --bg-elev: #ffffff;
+      --border: #e5e7eb;
+      --border-strong: #d1d5db;
+      --text: #111827;
+      --text-2: #374151;
+      --text-3: #6b7280;
+      --text-4: #9ca3af;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --success: #16a34a;
+      --success-soft: #dcfce7;
+      --warning: #d97706;
+      --warning-soft: #fef3c7;
+      --info: #0369a1;
+      --info-soft: #e0f2fe;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg-soft); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 15px; }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 28px 80px; }
+
+    h1 { font-size: 30px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; color: var(--text); }
+    h2 { font-size: 22px; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.005em; color: var(--text); }
+    h3 { font-size: 17px; font-weight: 600; margin: 0 0 10px; color: var(--text); }
+    p { margin: 0 0 8px; color: var(--text-2); }
+    .muted { color: var(--text-3); }
+    .small { font-size: 13px; }
+    .bold { font-weight: 600; }
+    .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
+
+    .section { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 26px; margin-bottom: 20px; }
+    .section-plain { padding: 6px 2px 18px; margin-bottom: 12px; }
+    .divider { height: 1px; background: var(--border); margin: 16px 0; border: none; }
+
+    .hero { background: linear-gradient(180deg, #fff 0%, #fafbff 100%);
+      border: 1px solid var(--border); border-radius: 14px; padding: 28px 30px;
+      margin-bottom: 24px; }
+    .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .hero-subtitle { color: var(--text-3); font-size: 15px; max-width: 900px; margin: 8px 0 18px; }
+
+    .pill { display: inline-flex; align-items: center; padding: 2px 10px;
+      font-size: 12px; border-radius: 999px; border: 1px solid var(--border-strong);
+      color: var(--text-2); background: #fff; font-weight: 500; }
+    .pill-accent { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    .pill-info { background: var(--info-soft); border-color: var(--info); color: var(--info); }
+    .pill-success { background: var(--success-soft); border-color: var(--success); color: var(--success); }
+    .pill-warn { background: var(--warning-soft); border-color: var(--warning); color: var(--warning); }
+
+    .grid { display: grid; gap: 16px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+    .grid-1-2 { grid-template-columns: 1fr 2fr; }
+    .grid-2-1 { grid-template-columns: 1.4fr 1fr; }
+    .grid-12-1 { grid-template-columns: 1.2fr 1fr; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .stat { padding: 14px 16px; background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); }
+    .stat-value { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: var(--text);
+      line-height: 1.15; }
+    .stat-value.success { color: var(--success); }
+    .stat-value.info { color: var(--info); }
+    .stat-value.warn { color: var(--warning); }
+    .stat-label { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+
+    .card { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; }
+    .card-header { padding: 10px 16px; border-bottom: 1px solid var(--border);
+      background: #fafbfc; font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .card-body { padding: 16px; }
+    .card-body.p-sm { padding: 12px; }
+    .card-body ul { margin: 0; padding-left: 18px; }
+    .card-body li { margin-bottom: 4px; font-size: 13.5px; color: var(--text-2); }
+
+    .callout { padding: 12px 14px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); border-left-width: 3px; background: var(--bg-soft); }
+    .callout-title { font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .callout-body { font-size: 13px; color: var(--text-2); }
+    .callout-body p { font-size: 13px; color: var(--text-2); margin: 0 0 4px; }
+    .callout.info { border-left-color: var(--info); background: var(--info-soft); }
+    .callout.info .callout-title { color: var(--info); }
+    .callout.success { border-left-color: var(--success); background: var(--success-soft); }
+    .callout.success .callout-title { color: var(--success); }
+    .callout.warn { border-left-color: var(--warning); background: var(--warning-soft); }
+    .callout.warn .callout-title { color: var(--warning); }
+    .callout.neutral { border-left-color: var(--text-3); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border);
+      color: var(--text-2); vertical-align: middle; }
+    th { background: #fafbfc; font-weight: 600; font-size: 12.5px; color: var(--text-3);
+      letter-spacing: 0.01em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    tr.tone-success td { background: rgba(22, 163, 74, 0.04); }
+    tr.tone-info td { background: rgba(3, 105, 161, 0.04); }
+    .align-center { text-align: center; }
+    .align-right { text-align: right; }
+
+    .signal-row { display: flex; gap: 10px; padding: 10px 0;
+      border-bottom: 1px solid var(--border); align-items: center; }
+    .signal-row:last-child { border-bottom: 0; }
+    .signal-row .left { flex: 1; min-width: 0; }
+    .signal-row .label { font-size: 13px; font-weight: 600; }
+    .signal-row .hint { font-size: 12px; color: var(--text-3); }
+    .signal-row .value { font-weight: 700; color: var(--text); font-size: 14px; white-space: nowrap; }
+
+    .chart { width: 100%; }
+    .chart svg { width: 100%; height: auto; display: block; }
+
+    .dag-wrap { overflow-x: auto; padding: 8px 2px; }
+    .dag-wrap svg { display: block; margin: 0 auto; }
+
+    .toc-bar { position: sticky; top: 0; background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+      z-index: 10; padding: 10px 28px; margin: -32px -28px 24px;
+      font-size: 12.5px; }
+    .toc-bar .toc-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 14px;
+      align-items: center; overflow-x: auto; }
+    .toc-bar a { color: var(--text-3); text-decoration: none; white-space: nowrap; padding: 4px 2px; }
+    .toc-bar a:hover { color: var(--accent); }
+    .toc-bar .brand { font-weight: 700; color: var(--text); }
+
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 0; }
+      .toc-bar { display: none; }
+      .section, .card, .hero { page-break-inside: avoid; box-shadow: none; }
+      h2 { page-break-after: avoid; }
+      .hero { break-before: avoid; }
+      .dag-wrap { overflow: visible; }
+      .dag-wrap svg { max-width: 100%; }
+    }
+
+    .spacer-sm { height: 6px; }
+    .spacer-md { height: 12px; }
+
+    .step-num { display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft);
+      color: var(--accent); font-weight: 700; font-size: 12px; margin-right: 8px; }
+
+    footer.site-footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-4); text-align: center; }
+  </style>
+</head>
+<body>
+  <nav class="toc-bar">
+    <div class="toc-inner">
+      <span class="brand">EngageLab MA · 智能安防方案</span>
+      <a href="#s-market">市场机会</a>
+      <a href="#s-funnel">订阅漏斗</a>
+      <a href="#s-why">为什么 EngageLab</a>
+      <a href="#s-results">客户实证</a>
+      <a href="#s-scenarios">六大场景</a>
+      <a href="#s-journey1">旅程示意</a>
+      <a href="#s-benchmark">对标参考</a>
+      <a href="#s-plan">测试计划</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-pills">
+        <span class="pill pill-info">智能安防 · 云订阅</span>
+        <span class="pill">全球化 IoT 硬件品牌</span>
+        <span class="pill">北美 · 欧洲 · 日本</span>
+      </div>
+      <h1>EngageLab MA · 智能安防硬件（云订阅）行业增长方案</h1>
+      <p class="hero-subtitle">
+        面向全球化智能摄像头、可视门铃、家庭安防品牌——
+        以 App 为唯一运营阵地，将"硬件卖出去就结束"升级为"订阅收入持续增长引擎"，
+        以 <span class="bold">试用转付费、续费提醒、流失召回、DAU 提升</span> 四大核心旅程切入，
+        4 周内完成测试、可量化验收。
+      </p>
+      <hr class="divider" />
+      <div class="grid grid-4">
+        <div class="stat"><div class="stat-value">$275M+</div><div class="stat-label">Arlo 年度订阅收入 ARR (2025)</div></div>
+        <div class="stat"><div class="stat-value info">500 万+</div><div class="stat-label">Arlo 全球付费订阅用户</div></div>
+        <div class="stat"><div class="stat-value success">+11.5%</div><div class="stat-label">客户实证 · 新客收入首月提升</div></div>
+        <div class="stat"><div class="stat-value success">+4.71%</div><div class="stat-label">客户实证 · DAU 周均涨幅</div></div>
+      </div>
+    </section>
+
+    <!-- 1. Market -->
+    <section id="s-market" class="section-plain">
+      <h2>一、为什么智能安防硬件必须重做用户运营</h2>
+      <p>
+        全球智能家居安防市场已进入"硬件普及 + 订阅争夺"阶段。
+        Arlo 2025 年订阅收入超 $275M、付费用户超 500 万；萤石 EZVIZ 月活 2600 万、全球出货量第一；
+        中国出海品牌在北美、欧洲、日本快速渗透。
+        硬件销售增长趋缓，<span class="bold">订阅转化率和续费率</span>已成为决定盈利能力的核心杠杆。
+        然而，多数品牌仍靠全量推送和手动运营——在这个环节，
+        <span class="bold">"自动化旅程编排 + 多区域分层触达"</span>是最直接的增量机会。
+      </p>
+      <div class="spacer-md"></div>
+      <div class="grid grid-12-1">
+        <div class="card">
+          <div class="card-header">全球主要市场 · 智能安防品牌竞争格局</div>
+          <div class="card-body">
+            <div class="chart" id="chart-market-share"></div>
+            <p class="small muted" style="margin-top:10px">
+              中国品牌在北美、欧洲和日本市场均有显著份额，但订阅运营能力参差不齐——
+              头部品牌（Arlo/Ring）月流失率仅 ~1%，而多数中国出海品牌的订阅续费率远未到达行业天花板。
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">核心业务信号</div>
+          <div class="card-body p-sm">
+            <div class="signal-row"><div class="left"><div class="label">Arlo 月流失率</div><div class="hint">行业标杆，用户生命周期 7-8 年</div></div><div class="value">~1%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">行业平均月订阅流失率</div><div class="hint">多数品牌远高于标杆</div></div><div class="value">5 – 10%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">试用转付费率（Opt-in）</div><div class="hint">无信用卡试用的行业基准</div></div><div class="value">8 – 25%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">个性化推送打开率</div><div class="hint">vs 通用推送 4-8%</div></div><div class="value">18 – 25%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">暂停订阅挽留效果</div><div class="hint">可替代直接取消</div></div><div class="value">挽回 30-40%</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Funnel -->
+    <section id="s-funnel" class="section-plain">
+      <h2>二、云订阅智能安防典型用户漏斗：每层都有明确的挽回空间</h2>
+      <p>
+        下图基于智能安防硬件行业公开数据和客户真实运营数据整理。漏斗的每一层衰减，对应一个可通过
+        <span class="bold">自动化旅程定向挽回</span>的运营缺口——这些收益无需增加广告投放，完全由用户生命周期运营产生。
+      </p>
+      <div class="spacer-md"></div>
+      <div class="card">
+        <div class="card-header">云订阅用户漏斗 · 当前转化率 vs 自动化运营后预期</div>
+        <div class="card-body">
+          <div class="chart" id="chart-funnel"></div>
+          <div class="grid grid-3" style="margin-top:14px">
+            <div class="stat"><div class="stat-value success">+11.5%</div><div class="stat-label">新客试用转付费收入提升（客户实证）</div></div>
+            <div class="stat"><div class="stat-value success">6.82%</div><div class="stat-label">续费提醒推送点击率（客户实证）</div></div>
+            <div class="stat"><div class="stat-value success">+4.71%</div><div class="stat-label">DAU 周均涨幅（客户实证）</div></div>
+          </div>
+          <p class="small muted" style="margin-top:12px">
+            基准参考：2024–2026 年智能安防硬件行业公开报告 + 已验证客户真实运营数据。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Why EngageLab -->
+    <section id="s-why" class="section-plain">
+      <h2>三、EngageLab MA 为什么是智能安防出海品牌的正确答案</h2>
+      <div class="grid grid-3">
+        <div class="card"><div class="card-header">高可靠消息底座</div><div class="card-body">
+          <ul>
+            <li><span class="bold">100 万条/秒</span>并发，消息平均响应 <span class="bold">&lt; 200ms</span></li>
+            <li>App Push 送达 <span class="bold">&gt; 95%</span>（客户实证 99.85%），邮件触达 <span class="bold">99.97%</span></li>
+            <li>全链路 TLS 加密，传输层与存储层数据分离</li>
+            <li>已在多家百万级用户 App 的生产环境规模化运行</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-header">全球多区域 × 灵活旅程编排</div><div class="card-body">
+          <ul>
+            <li>条件分支 + 用户属性组合，支持按 <span class="bold">任意维度</span> 自定义分流策略（如区域、币种、设备型号等）</li>
+            <li>Email / SMS 覆盖 <span class="bold">113 国</span>，1000+ 发信 IP，全球送达能力成熟</li>
+            <li>可发送时间窗基于 <span class="bold">用户时区</span> 自动匹配</li>
+            <li>多语言内容 + AI 文案生成，一条旅程覆盖全球</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-header">实时标签 × 用户旅程编排</div><div class="card-body">
+          <ul>
+            <li>用户标签从 T+1 升级为 <span class="bold">实时生效</span>（客户实证）</li>
+            <li>行为发生即触达——"Motion detected but not recorded" 即时推送</li>
+            <li>拖拽式 Journey Builder + 条件分支 + 行为触发</li>
+            <li>零代码运营，运营团队可自主配置旅程并随时上线</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="spacer-md"></div>
+      <h3>3.1 EngageLab 在智能安防场景中的渠道能力</h3>
+      <table>
+        <thead><tr>
+          <th>渠道</th><th>在智能安防中的主要用途</th><th class="align-right">单条成本</th>
+          <th class="align-right">效果参考</th><th class="align-center">适用场景</th>
+        </tr></thead>
+        <tbody>
+          <tr class="tone-success"><td>App Push 通知</td><td>试用到期提醒、续费提醒、设备事件通知</td><td class="align-right">≈ 0</td><td class="align-right">点击率 6.32-6.82%（客户实证）</td><td class="align-center">全场景首选</td></tr>
+          <tr class="tone-success"><td>App Push 自定义</td><td>广告位投放、商城入口 Banner、促销活动</td><td class="align-right">≈ 0</td><td class="align-right">送达率 99.85%（客户实证）</td><td class="align-center">DAU 提升 · 广告变现</td></tr>
+          <tr><td>App 应用内消息</td><td>试用引导、功能教育、套餐对比</td><td class="align-right">≈ 0</td><td class="align-right">查看率 25-40%</td><td class="align-center">新客 Onboarding</td></tr>
+          <tr><td>Email</td><td>账单提醒、过期通知、促销活动</td><td class="align-right">$0.002</td><td class="align-right">触发类打开率 30%+</td><td class="align-center">正式通知 · 长内容</td></tr>
+          <tr><td>SMS</td><td>支付失败提醒、兜底触达</td><td class="align-right">按目标国家定价</td><td class="align-right">送达率 95%</td><td class="align-center">高优先级兜底</td></tr>
+          <tr><td>Web Push</td><td>网页端唤回、PC 用户触达</td><td class="align-right">≈ 0</td><td class="align-right">点击率 8-12%</td><td class="align-center">Web 端补充</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 4. Customer Results -->
+    <section id="s-results" class="section-plain">
+      <h2>四、客户实证：已验证的真实效果数据</h2>
+      <p>
+        某全球化智能安防品牌基于 EngageLab 的用户属性与事件埋点能力，对不同生命周期用户分层运营，
+        覆盖新用户激活、付费转化、套餐续费、流失召回、广告变现等核心场景。以下为生产环境真实数据。
+      </p>
+      <div class="spacer-md"></div>
+      <div class="grid grid-3">
+        <div class="stat"><div class="stat-value success">6.82%</div><div class="stat-label">套餐续费提醒 · 推送点击率最高</div></div>
+        <div class="stat"><div class="stat-value success">6.32%</div><div class="stat-label">试用转付费 · 推送点击率最高</div></div>
+        <div class="stat"><div class="stat-value success">+11.5%</div><div class="stat-label">新客试用转付费旅程 · 首月收入环比提升</div></div>
+      </div>
+      <div class="spacer-md"></div>
+      <div class="grid grid-3">
+        <div class="stat"><div class="stat-value info">+9.34%</div><div class="stat-label">切换至 EngageLab 当日 · DAU 环比上涨</div></div>
+        <div class="stat"><div class="stat-value info">+4.71%</div><div class="stat-label">连续 7 天正向增长 · DAU 周均涨幅</div></div>
+        <div class="stat"><div class="stat-value info">实时</div><div class="stat-label">标签圈人从 T+1 升级为实时生效</div></div>
+      </div>
+      <div class="spacer-md"></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-header">能力升级对比</div>
+          <div class="card-body" style="padding:0">
+            <table style="border:none;border-radius:0">
+              <thead><tr><th>能力维度</th><th>升级前</th><th>升级后（EngageLab）</th></tr></thead>
+              <tbody>
+                <tr><td class="bold">标签圈人</td><td>T+1 批量计算</td><td>实时事件触发，即时生效</td></tr>
+                <tr><td class="bold">运营任务上线</td><td>需提前规划排期</td><td>随时配置、随时上线</td></tr>
+                <tr><td class="bold">触达时效</td><td>用户行为后数小时</td><td>用户行为发生即触达</td></tr>
+                <tr><td class="bold">人群分层</td><td>粗放分层</td><td>用户属性 + 实时事件多维分层</td></tr>
+                <tr><td class="bold">区域运营</td><td>统一内容全量推送</td><td>按区域/币种自动分流</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">已验证的旅程覆盖（13 条活跃旅程）</div>
+          <div class="card-body" style="padding:0">
+            <table style="border:none;border-radius:0">
+              <thead><tr><th>场景类别</th><th class="align-center">旅程数</th><th>覆盖规模</th></tr></thead>
+              <tbody>
+                <tr class="tone-success"><td class="bold">新客激活 & 试用转付费</td><td class="align-center">4</td><td>多阶段递进 + 分币种/区域</td></tr>
+                <tr class="tone-success"><td class="bold">订阅续费 & 过期召回</td><td class="align-center">4</td><td>行为触发 + 深度分层（30天+）</td></tr>
+                <tr class="tone-info"><td class="bold">支付挽留</td><td class="align-center">1</td><td>信用卡失败挽回（点击率 6.26%）</td></tr>
+                <tr class="tone-info"><td class="bold">广告变现 & DAU 提升</td><td class="align-center">3</td><td>250-340 万用户级旅程</td></tr>
+                <tr><td class="bold">沉默用户分层促活</td><td class="align-center">1</td><td>3/7/14 天 RFM 分层</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Scenarios -->
+    <section id="s-scenarios" class="section-plain">
+      <h2>五、六大高 ROI 运营场景</h2>
+      <table>
+        <thead><tr>
+          <th class="align-center">#</th><th>场景</th><th>生命周期</th>
+          <th>触达策略</th><th>客户实证 / 对标指标</th><th class="align-right">预期效果</th>
+        </tr></thead>
+        <tbody>
+          <tr class="tone-success"><td class="align-center">1</td><td>试用转付费（分区域/币种）</td><td>新客转化</td><td>多阶段行为触发 × 区域分流</td><td>推送点击率 6.32%，新客收入 +11.5%</td><td class="align-right">收入 +10-15%</td></tr>
+          <tr class="tone-success"><td class="align-center">2</td><td>订阅续费提醒</td><td>留存</td><td>自动续费 / 手动续费分流</td><td>推送点击率 6.82%</td><td class="align-right">续费率 +5-10%</td></tr>
+          <tr class="tone-success"><td class="align-center">3</td><td>过期用户分层召回</td><td>流失挽回</td><td>行为触发（设备在用/离线） × 多级</td><td>深度流失用户精准识别</td><td class="align-right">召回率 +15-25%</td></tr>
+          <tr class="tone-success"><td class="align-center">4</td><td>支付失败挽留</td><td>非自愿流失</td><td>支付状态条件判断 + 精准推送</td><td>推送点击率 6.26%</td><td class="align-right">挽回率 +20-30%</td></tr>
+          <tr><td class="align-center">5</td><td>沉默用户分层促活</td><td>促活</td><td>RFM 3/7/14 天分层 + 场景化</td><td>Wyze 分群转化 +56%</td><td class="align-right">DAU +3-8%</td></tr>
+          <tr><td class="align-center">6</td><td>广告变现人群精准投放</td><td>变现</td><td>活跃度条件筛选 + 自定义推送</td><td>DAU 当日 +9.34%，周均 +4.71%</td><td class="align-right">广告收入 +5-10%</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted" style="margin-top:10px">
+        六个场景覆盖从新客到流失的完整用户生命周期——越多旅程协同运行，越能撬动全漏斗的累计收益。
+      </p>
+    </section>
+
+    <!-- Journey 1 -->
+    <section id="s-journey1" class="section-plain">
+      <h2>场景 1｜试用转付费（分区域/币种）</h2>
+      <div class="row" style="margin-bottom:14px">
+        <span class="pill pill-success">客户已验证</span>
+        <span class="pill pill-info">新客转化</span>
+        <span class="pill">推送点击率 6.32% · 新客收入 +11.5%</span>
+      </div>
+      <div class="grid grid-2-1">
+        <div class="card">
+          <div class="card-header">旅程编排示意图</div>
+          <div class="card-body">
+            <div class="dag-wrap" id="dag-j1"></div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn">
+            <div class="callout-title">业务痛点</div>
+            <div class="callout-body">
+              免费试用用户大量流失——行业 Opt-in 试用转付费率仅 8-25%。
+              不同区域用户看到相同英语文案和统一价格，缺乏本地化体验和使用痛点驱动的转化引导。
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">旅程组件配置</div>
+            <div class="card-body">
+              <ul>
+                <li><span class="bold">开始组件</span>：事件"试用开始" + 设备绑定成功</li>
+                <li><span class="bold">条件分支</span>：按用户属性"区域/币种"分流（USD/GBP/EUR/CAD/JPY）</li>
+                <li><span class="bold">行为触发</span>：分阶段推送差异化内容（功能教育 → 痛点触发 → 紧迫感 → 最后机会）</li>
+                <li><span class="bold">提前退出</span>：事件"首次付费成功"→ 自动退出</li>
+                <li><span class="bold">可发送时间</span>：用户时区 09:00–19:00</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout success">
+            <div class="callout-title">客户实证效果</div>
+            <div class="callout-body">
+              推送点击率最高 6.32%，上线首月新客收入环比提升约 11.5%。
+              内容使用场景化痛点话术（如"Motion detected but not recorded"）比通用促销话术效果提升显著。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey 2 -->
+    <section id="s-journey2" class="section-plain">
+      <h2>场景 2｜订阅续费提醒（自动续费 + 手动续费）</h2>
+      <div class="row" style="margin-bottom:14px">
+        <span class="pill pill-success">客户已验证</span>
+        <span class="pill pill-info">留存</span>
+        <span class="pill">推送点击率 6.82%</span>
+      </div>
+      <div class="grid grid-2-1">
+        <div class="card">
+          <div class="card-header">旅程编排示意图</div>
+          <div class="card-body">
+            <div class="dag-wrap" id="dag-j2"></div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn">
+            <div class="callout-title">业务痛点</div>
+            <div class="callout-body">
+              行业平均月订阅流失率 5-10%，每降低 1% 流失率等于增加数万美元 ARR。
+              到期用户没有被系统化提醒和挽留，等到过期 30 天后已很难召回。
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">旅程组件配置</div>
+            <div class="card-body">
+              <ul>
+                <li><span class="bold">开始组件</span>：属性"订阅到期前 7 天"触发进入</li>
+                <li><span class="bold">条件分支</span>：自动续费 vs 手动续费，差异化策略</li>
+                <li><span class="bold">多阶段触达</span>：7 天前 → 3 天前 → 1 天前 → 到期当天，紧迫感逐步升级</li>
+                <li><span class="bold">提前退出</span>：事件"续费成功"→ 自动退出</li>
+                <li><span class="bold">可发送时间</span>：用户时区 08:00–19:00</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout success">
+            <div class="callout-title">客户实证效果</div>
+            <div class="callout-body">
+              续费提醒推送点击率最高 6.82%，远高于行业通用推送 4-8% 基准。
+              多步骤递进策略（"Cloud Service Expiring" → "Data at Risk"）显著提升续费率。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey 3 -->
+    <section id="s-journey3" class="section-plain">
+      <h2>场景 3｜过期用户分层召回（行为触发）</h2>
+      <div class="row" style="margin-bottom:14px">
+        <span class="pill pill-success">客户已验证</span>
+        <span class="pill pill-info">流失挽回</span>
+        <span class="pill">行为触发 × 5 分支 × 多级递进</span>
+      </div>
+      <div class="grid grid-2-1">
+        <div class="card">
+          <div class="card-header">旅程编排示意图</div>
+          <div class="card-body">
+            <div class="dag-wrap" id="dag-j3"></div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn">
+            <div class="callout-title">业务痛点</div>
+            <div class="callout-body">
+              订阅过期用户中，相当比例仍在使用设备（有事件上报），但没有被识别和定向触达。
+              "设备在用但没付费"的用户是最高价值的召回人群，简单群发无法精准识别他们。
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">旅程组件配置</div>
+            <div class="card-body">
+              <ul>
+                <li><span class="bold">开始组件</span>：属性"订阅过期"触发进入</li>
+                <li><span class="bold">行为触发分支</span>：判断过期后是否仍有设备事件上报</li>
+                <li><span class="bold">多级递进</span>：3 天 → 7 天 → 15 天 → 30 天，从温和提醒到数据风险警告</li>
+                <li><span class="bold">话术策略</span>：仍在用 → "You're using but not recording"；设备离线 → "Is everything okay?"</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout success">
+            <div class="callout-title">客户实证效果</div>
+            <div class="callout-body">
+              客户已配置 4 条过期召回旅程，覆盖不同过期深度（7 天 / 30 天+）和多种行为触发分支，
+              精准识别"在用但没付费"的高价值人群进行定向转化。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey 4 -->
+    <section id="s-journey4" class="section-plain">
+      <h2>场景 4｜支付失败挽留（非自愿流失）</h2>
+      <div class="row" style="margin-bottom:14px">
+        <span class="pill pill-success">客户已验证</span>
+        <span class="pill pill-info">支付挽留</span>
+        <span class="pill">推送点击率 6.26%</span>
+      </div>
+      <div class="grid grid-2-1">
+        <div class="card">
+          <div class="card-header">旅程编排示意图</div>
+          <div class="card-body">
+            <div class="dag-wrap" id="dag-j4"></div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn">
+            <div class="callout-title">业务痛点</div>
+            <div class="callout-body">
+              信用卡到期、余额不足等"非自愿流失"（Involuntary Churn）是订阅业务的隐藏杀手。
+              行业数据显示非自愿流失约占总流失的 20-40%，但多数品牌缺乏自动化挽留机制。
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">旅程组件配置</div>
+            <div class="card-body">
+              <ul>
+                <li><span class="bold">开始组件</span>：事件"支付失败"触发进入</li>
+                <li><span class="bold">条件分支</span>：本月是否已成功支付？已支付 → 退出，未支付 → 触达</li>
+                <li><span class="bold">可发送时间</span>：用户时区 08:00–10:00, 15:00–17:00</li>
+                <li><span class="bold">多步骤</span>：首次提醒 → 等待 3 天 → 二次提醒 → 进入过期召回</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout success">
+            <div class="callout-title">客户实证效果</div>
+            <div class="callout-body">
+              信用卡支付挽留旅程推送点击率 6.26%，"Credit Card Payment is Back!" 话术
+              在精准时间窗内触达，有效挽回因支付问题流失的用户。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey 5 -->
+    <section id="s-journey5" class="section-plain">
+      <h2>场景 5｜沉默用户分层促活（3/7/14 天）</h2>
+      <div class="row" style="margin-bottom:14px">
+        <span class="pill pill-success">客户已验证</span>
+        <span class="pill pill-info">促活</span>
+        <span class="pill">RFM 分层 × 设备状态感知</span>
+      </div>
+      <div class="grid grid-2-1">
+        <div class="card">
+          <div class="card-header">旅程编排示意图</div>
+          <div class="card-body">
+            <div class="dag-wrap" id="dag-j5"></div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn">
+            <div class="callout-title">业务痛点</div>
+            <div class="callout-body">
+              未打开 App 的用户逐月累积，DAU 缓慢下降。DAU 下降直接影响广告展示量和订阅续费概率。
+              不同沉默深度的用户需要不同话术——轻度沉默用功能引导，重度沉默用情感+安全感召回。
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">旅程组件配置</div>
+            <div class="card-body">
+              <ul>
+                <li><span class="bold">条件分支</span>：近 3 天 / 7 天 / 14 天未打开 App 三级分层</li>
+                <li><span class="bold">设备状态感知</span>：设备在线 → 功能引导；设备离线 → 安全感召回</li>
+                <li><span class="bold">话术策略</span>：轻度"Check out what's new" → 中度"Your camera detected activity" → 重度"Is everything okay at home?"</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout success">
+            <div class="callout-title">行业对标</div>
+            <div class="callout-body">
+              Wyze 通过 Braze 的跨渠道分群触达，实现订阅转化率提升 56%。
+              分层触达的打开率可达 18-25%，远高于通用推送的 4-8%。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey 6 -->
+    <section id="s-journey6" class="section-plain">
+      <h2>场景 6｜广告变现人群精准投放</h2>
+      <div class="row" style="margin-bottom:14px">
+        <span class="pill pill-success">客户已验证</span>
+        <span class="pill pill-info">变现</span>
+        <span class="pill">DAU 当日 +9.34% · 周均 +4.71%</span>
+      </div>
+      <div class="grid grid-2-1">
+        <div class="card">
+          <div class="card-header">旅程编排示意图</div>
+          <div class="card-body">
+            <div class="dag-wrap" id="dag-j6"></div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr; gap:12px;">
+          <div class="callout warn">
+            <div class="callout-title">业务痛点</div>
+            <div class="callout-body">
+              App 内广告收入依赖 DAU，但 DAU 缺乏系统化维护手段。
+              全量推送浪费资源且影响用户体验，需要精准识别"高活跃且广告友好"的人群进行定向触达。
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">旅程组件配置</div>
+            <div class="card-body">
+              <ul>
+                <li><span class="bold">条件分支</span>：活跃天数 ≥ 35 天 & 重点用户筛选</li>
+                <li><span class="bold">追踪事件</span>：广告展示/点击事件归因</li>
+                <li><span class="bold">AppPush 自定义</span>：推送广告 Reward / Discover / Banner 内容</li>
+                <li><span class="bold">规模</span>：已验证 250-340 万用户级旅程稳定运行</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout success">
+            <div class="callout-title">客户实证效果</div>
+            <div class="callout-body">
+              部分人群切换至 EngageLab 广告投放后，DAU 切换当日即环比上涨 9.34%，
+              此后连续 7 天保持正向增长，整体 DAU 周均涨幅 4.71%。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benchmarks -->
+    <section id="s-benchmark" class="section-plain">
+      <h2>六、行业对标参考</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-header">核心指标对比 · EngageLab 客户实证 vs 行业基准</div>
+          <div class="card-body">
+            <div class="chart" id="chart-benchmark"></div>
+            <p class="small muted" style="margin-top:8px">数据来源：客户生产环境真实数据 + 行业公开报告（2024–2026）。</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">多渠道编排的效果放大</div>
+          <div class="card-body">
+            <div class="chart" id="chart-channel-lift"></div>
+            <p class="small muted" style="margin-top:8px">行业数据：个性化推送打开率 18-25% vs 通用推送 4-8%；多渠道编排转化提升 +31%。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-md"></div>
+      <div class="card">
+        <div class="card-header">智能安防行业 · MA 使用情况与效果对标</div>
+        <div class="card-body" style="padding:0">
+          <table style="border:none;border-radius:0">
+            <thead><tr>
+              <th>案例</th><th class="align-center">市场</th>
+              <th>业务形态</th><th>关键数据</th><th>参考价值</th>
+            </tr></thead>
+            <tbody>
+              <tr class="tone-success"><td class="bold">EngageLab 客户实证</td><td class="align-center">全球</td><td>智能摄像头 + 云订阅</td><td>推送点击率 6.82%，新客收入 +11.5%，DAU +4.71%</td><td>同行业、同模式、同挑战的直接验证</td></tr>
+              <tr><td class="bold">Wyze × Braze</td><td class="align-center">美国</td><td>智能摄像头 + Cam Plus 订阅</td><td>跨渠道分群使订阅转化率提升 56%</td><td>智能安防行业唯一公开 MA 深度案例</td></tr>
+              <tr><td class="bold">Arlo</td><td class="align-center">全球</td><td>智能安防 + 订阅</td><td>500 万+付费用户，月流失率 ~1%，LTV/CAC = 4.0</td><td>订阅业务天花板标杆，验证 MA 长期价值</td></tr>
+              <tr><td class="bold">Magenta SmartHome × MoEngage</td><td class="align-center">欧洲</td><td>智能家居 + 设备促销</td><td>双周活动 Push 促进设备订单转化</td><td>欧洲智能家居 MA 落地案例</td></tr>
+              <tr><td class="bold">Pushwoosh Plan Upgrade</td><td class="align-center">全球</td><td>订阅型 App</td><td>Plan Upgrade 转化率 67%，MRR +34%</td><td>订阅升级自动化的方法论对标</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="section-plain">
+      <h2>七、合规与安全</h2>
+      <div class="grid grid-2">
+        <div class="card"><div class="card-header">数据安全</div><div class="card-body">
+          <ul>
+            <li>全链路 <span class="bold">TLS</span> 加密传输，传输层与存储层分离</li>
+            <li>VPC 网络隔离，数据中心多活灾备</li>
+            <li>PII 字段脱敏、日志审计、数据访问全链路可追溯</li>
+            <li>基于角色的访问控制（RBAC），运营不可裸查客户数据</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-header">全球合规</div><div class="card-body">
+          <ul>
+            <li>已通过 <span class="bold">GDPR</span> 合规认证 + <span class="bold">SOC 2</span> 审计认证</li>
+            <li>北美、欧洲、日本等主要市场合规要求全覆盖</li>
+            <li>数据中心可按客户安全需求灵活部署</li>
+            <li>用户数据删除、导出、同意管理等 GDPR 权利支持</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="spacer-md"></div>
+      <div class="callout info">
+        <div class="callout-title">运营护栏</div>
+        <div class="callout-body">
+          <p>· 频控策略：每用户每日最多 N 次推送，旅程内自动去重；</p>
+          <p>· 勿扰时段：基于用户时区自动停发深夜消息，匹配本地生活节奏；</p>
+          <p>· 内容预览：消息发送前支持样式预览，确认触达效果后再发送；</p>
+          <p>· 消息记录：所有触达记录保留 60 天，可随时导出用于合规审查。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan -->
+    <section id="s-plan" class="section-plain">
+      <h2>八、4 周测试计划 · 可量化验收</h2>
+      <table>
+        <thead><tr>
+          <th class="align-center">周</th><th>阶段</th><th>工作内容</th>
+          <th>交付物</th><th>验收指标</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="align-center bold">Week 1</td><td>启动 & 数据打通</td><td>场景共创 · SDK 埋点方案 · 事件定义 · 用户属性映射</td><td>埋点方案 + 数据流通验证</td><td>事件入库率 ≥ 95%</td></tr>
+          <tr class="tone-info"><td class="align-center bold">Week 2</td><td>旅程上线</td><td>2 条核心旅程构建：试用转付费 + 续费提醒，小流量验证</td><td>2 条 Journey 跑通（5-10% 用户）</td><td>Journey 触发成功率 ≥ 98%</td></tr>
+          <tr class="tone-info"><td class="align-center bold">Week 3</td><td>扩量 & 优化</td><td>旅程扩至全量 · 新增过期召回/支付挽留旅程 · A/B 测试话术</td><td>4 条 Journey 全量运行 + A/B 数据</td><td>样本量 ≥ 1 万用户</td></tr>
+          <tr class="tone-success"><td class="align-center bold">Week 4</td><td>复盘 & 扩面</td><td>数据复盘 · ROI 结算 · 扩展促活/广告变现旅程 · 下阶段规划</td><td>测试结案报告 + 下阶段方案</td><td>试用转付费率 uplift · 续费率 uplift</td></tr>
+        </tbody>
+      </table>
+      <div class="spacer-md"></div>
+      <div class="grid grid-3">
+        <div class="stat"><div class="stat-value">4 周</div><div class="stat-label">上线周期</div></div>
+        <div class="stat"><div class="stat-value success">$0</div><div class="stat-label">授权费用 · 测试期间</div></div>
+        <div class="stat"><div class="stat-value">2 人</div><div class="stat-label">EngageLab 专属服务团队</div></div>
+      </div>
+
+      <div class="spacer-md"></div>
+      <hr class="divider" />
+      <h3>下一步建议</h3>
+      <div class="grid grid-3">
+        <div class="card"><div class="card-header"><span class="step-num">1</span>对齐</div><div class="card-body">
+          确认 App 用户生命周期关键节点（试用 / 付费 / 续费 / 过期），共创首批测试场景与验证指标。
+        </div></div>
+        <div class="card"><div class="card-header"><span class="step-num">2</span>SDK 接入</div><div class="card-body">
+          根据 MA 交付团队提供的埋点方案，完成 App SDK 集成、用户属性上报和关键行为事件埋点。
+        </div></div>
+        <div class="card"><div class="card-header"><span class="step-num">3</span>旅程验证</div><div class="card-body">
+          搭建旅程并上线小流量验证；测试期间持续优化触达策略，以真实数据驱动扩量决策。
+        </div></div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      本方案中"客户实证"数据均来自已合作智能安防品牌的生产环境真实运营数据；
+      行业对标数据来自 Arlo 财报（2025）、Braze/Wyze 公开案例、行业订阅留存报告（2024–2026）。
+      <br />© EngageLab · Marketing Automation Solution for Smart Home Security
+    </footer>
+  </main>
+
+  <script>
+  (function () {
+    const COLORS = {
+      accent: '#2563eb', info: '#0369a1', success: '#16a34a',
+      warning: '#d97706', neutral: '#94a3b8', muted: '#cbd5e1',
+      text: '#374151', textMute: '#9ca3af', grid: '#e5e7eb',
+    };
+
+    function svg(w, h) {
+      const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      s.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      s.setAttribute('width', '100%');
+      s.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      return s;
+    }
+    function el(tag, attrs) {
+      const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      for (const k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    }
+
+    function drawBarChart(mount, opts) {
+      const { categories, series, valueSuffix = '', height = 240 } = opts;
+      const W = 600, H = height, PAD_L = 44, PAD_R = 16, PAD_T = 12, PAD_B = 56;
+      const innerW = W - PAD_L - PAD_R, innerH = H - PAD_T - PAD_B;
+      const max = Math.max(...series.flatMap(s => s.data), 1);
+      const niceMax = Math.ceil(max / 20) * 20 || 100;
+      const groupCount = categories.length;
+      const barsPerGroup = series.length;
+      const groupW = innerW / groupCount;
+      const barW = Math.min(22, (groupW - 12) / barsPerGroup);
+      const s = svg(W, H);
+      for (let i = 0; i <= 4; i++) {
+        const v = (niceMax / 4) * i;
+        const y = PAD_T + innerH - (v / niceMax) * innerH;
+        s.appendChild(el('line', { x1: PAD_L, x2: W - PAD_R, y1: y, y2: y, stroke: COLORS.grid, 'stroke-width': 1 }));
+        const t = el('text', { x: PAD_L - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 10, fill: COLORS.textMute });
+        t.textContent = Math.round(v) + valueSuffix;
+        s.appendChild(t);
+      }
+      categories.forEach((cat, ci) => {
+        const gx = PAD_L + groupW * ci;
+        series.forEach((se, si) => {
+          const v = se.data[ci] || 0;
+          const h = (v / niceMax) * innerH;
+          const x = gx + (groupW - barW * barsPerGroup) / 2 + si * barW;
+          const y = PAD_T + innerH - h;
+          const color = COLORS[se.tone] || COLORS.neutral;
+          s.appendChild(el('rect', { x, y, width: barW - 2, height: h, fill: color, rx: 2 }));
+          if (v > 0) {
+            const label = el('text', { x: x + (barW - 2) / 2, y: y - 2, 'text-anchor': 'middle', 'font-size': 8, fill: COLORS.text });
+            label.textContent = v + valueSuffix;
+            s.appendChild(label);
+          }
+        });
+        const t = el('text', { x: gx + groupW / 2, y: H - PAD_B + 18, 'text-anchor': 'middle', 'font-size': 11, fill: COLORS.text });
+        t.textContent = cat;
+        s.appendChild(t);
+      });
+      if (series.length > 1) {
+        const legY = H - 18;
+        let legX = PAD_L;
+        series.forEach((se) => {
+          const color = COLORS[se.tone] || COLORS.neutral;
+          s.appendChild(el('rect', { x: legX, y: legY - 8, width: 10, height: 10, fill: color, rx: 2 }));
+          const t = el('text', { x: legX + 14, y: legY + 1, 'font-size': 11, fill: COLORS.text });
+          t.textContent = se.name;
+          s.appendChild(t);
+          legX += 14 + (se.name.length * 8) + 16;
+        });
+      }
+      mount.innerHTML = '';
+      mount.appendChild(s);
+    }
+
+    function drawLineChart(mount, opts) {
+      const { categories, series, valueSuffix = '', height = 240 } = opts;
+      const W = 600, H = height, PAD_L = 44, PAD_R = 16, PAD_T = 14, PAD_B = 56;
+      const innerW = W - PAD_L - PAD_R, innerH = H - PAD_T - PAD_B;
+      const max = Math.max(...series.flatMap(s => s.data), 1);
+      const niceMax = Math.ceil(max / 10) * 10 || 100;
+      const n = categories.length;
+      const xStep = innerW / (n - 1);
+      const s = svg(W, H);
+      for (let i = 0; i <= 4; i++) {
+        const v = (niceMax / 4) * i;
+        const y = PAD_T + innerH - (v / niceMax) * innerH;
+        s.appendChild(el('line', { x1: PAD_L, x2: W - PAD_R, y1: y, y2: y, stroke: COLORS.grid, 'stroke-width': 1 }));
+        const t = el('text', { x: PAD_L - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 10, fill: COLORS.textMute });
+        t.textContent = Math.round(v) + valueSuffix;
+        s.appendChild(t);
+      }
+      categories.forEach((cat, i) => {
+        const x = PAD_L + xStep * i;
+        const t = el('text', { x, y: H - PAD_B + 18, 'text-anchor': 'middle', 'font-size': 11, fill: COLORS.text });
+        t.textContent = cat;
+        s.appendChild(t);
+      });
+      series.forEach((se) => {
+        const color = COLORS[se.tone] || COLORS.accent;
+        let d = '';
+        const points = se.data.map((v, i) => [PAD_L + xStep * i, PAD_T + innerH - (v / niceMax) * innerH]);
+        points.forEach(([x, y], i) => { d += (i === 0 ? 'M' : 'L') + x + ',' + y; });
+        const area = d + ' L' + points[points.length - 1][0] + ',' + (PAD_T + innerH)
+          + ' L' + points[0][0] + ',' + (PAD_T + innerH) + ' Z';
+        s.appendChild(el('path', { d: area, fill: color, opacity: 0.08 }));
+        s.appendChild(el('path', { d, fill: 'none', stroke: color, 'stroke-width': 2 }));
+        points.forEach(([x, y]) => {
+          s.appendChild(el('circle', { cx: x, cy: y, r: 3.5, fill: '#fff', stroke: color, 'stroke-width': 1.8 }));
+        });
+      });
+      const legY = H - 18;
+      let legX = PAD_L;
+      series.forEach((se) => {
+        const color = COLORS[se.tone] || COLORS.accent;
+        s.appendChild(el('circle', { cx: legX + 5, cy: legY - 4, r: 4, fill: color }));
+        const t = el('text', { x: legX + 14, y: legY + 1, 'font-size': 11, fill: COLORS.text });
+        t.textContent = se.name;
+        s.appendChild(t);
+        legX += 14 + (se.name.length * 8) + 18;
+      });
+      mount.innerHTML = '';
+      mount.appendChild(s);
+    }
+
+    const KIND_STYLE = {
+      entry:   { fill: '#f1f5f9', stroke: '#94a3b8', text: '#111827' },
+      wait:    { fill: '#fafafa', stroke: '#d1d5db', text: '#6b7280' },
+      branch:  { fill: '#f9fafb', stroke: '#475569', text: '#111827' },
+      channel: { fill: '#dbeafe', stroke: '#2563eb', text: '#1e3a8a' },
+      sendtime:{ fill: '#fef3c7', stroke: '#d97706', text: '#92400e' },
+      exitOk:  { fill: '#dcfce7', stroke: '#16a34a', text: '#14532d' },
+      exitEnd: { fill: '#f3f4f6', stroke: '#9ca3af', text: '#4b5563' },
+    };
+
+    function drawJourney(mount, nodes, edges) {
+      const NODE_W = 176, NODE_H = 62, RANK_GAP = 42, NODE_GAP = 22;
+      const rankOf = {};
+      const incoming = {};
+      nodes.forEach(n => { rankOf[n.id] = 0; incoming[n.id] = []; });
+      edges.forEach(e => { incoming[e.to].push(e.from); });
+      let changed = true;
+      while (changed) {
+        changed = false;
+        edges.forEach(e => {
+          if (rankOf[e.to] < rankOf[e.from] + 1) {
+            rankOf[e.to] = rankOf[e.from] + 1;
+            changed = true;
+          }
+        });
+      }
+      const maxRank = Math.max(...Object.values(rankOf));
+      const ranks = [];
+      for (let r = 0; r <= maxRank; r++) ranks.push([]);
+      nodes.forEach(n => { ranks[rankOf[n.id]].push(n); });
+      const pos = {};
+      const rankWidths = ranks.map(r => r.length * NODE_W + (r.length - 1) * NODE_GAP);
+      const maxWidth = Math.max(...rankWidths, 400);
+      ranks.forEach((rankNodes, r) => {
+        const withAnchor = rankNodes.map(n => {
+          const parents = incoming[n.id].map(p => pos[p] ? pos[p].x + NODE_W / 2 : null).filter(x => x !== null);
+          const anchor = parents.length ? parents.reduce((a, b) => a + b, 0) / parents.length : null;
+          return { node: n, anchor };
+        });
+        withAnchor.sort((a, b) => {
+          if (a.anchor === null && b.anchor === null) return 0;
+          if (a.anchor === null) return 1;
+          if (b.anchor === null) return -1;
+          return a.anchor - b.anchor;
+        });
+        const totalW = withAnchor.length * NODE_W + (withAnchor.length - 1) * NODE_GAP;
+        const startX = (maxWidth - totalW) / 2 + 20;
+        withAnchor.forEach((it, i) => {
+          const x = startX + i * (NODE_W + NODE_GAP);
+          const y = 20 + r * (NODE_H + RANK_GAP);
+          pos[it.node.id] = { x, y };
+        });
+      });
+      for (let pass = 0; pass < 3; pass++) {
+        ranks.forEach((rankNodes) => {
+          const sorted = rankNodes.slice().sort((a, b) => pos[a.id].x - pos[b.id].x);
+          for (let i = 1; i < sorted.length; i++) {
+            const prev = pos[sorted[i - 1].id];
+            const cur = pos[sorted[i].id];
+            if (cur.x < prev.x + NODE_W + NODE_GAP) {
+              cur.x = prev.x + NODE_W + NODE_GAP;
+            }
+          }
+        });
+      }
+      const width = Math.max(...Object.values(pos).map(p => p.x)) + NODE_W + 20;
+      const height = Math.max(...Object.values(pos).map(p => p.y)) + NODE_H + 24;
+      const s = svg(width, height);
+      s.setAttribute('width', width);
+      s.setAttribute('height', height);
+      s.style.maxWidth = '100%';
+      s.style.height = 'auto';
+      const defs = el('defs');
+      const marker = el('marker', { id: 'arrow', viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: 'auto-start-reverse' });
+      marker.appendChild(el('path', { d: 'M 0 0 L 10 5 L 0 10 z', fill: '#94a3b8' }));
+      defs.appendChild(marker);
+      s.appendChild(defs);
+      edges.forEach(e => {
+        const from = pos[e.from], to = pos[e.to];
+        if (!from || !to) return;
+        const x1 = from.x + NODE_W / 2, y1 = from.y + NODE_H;
+        const x2 = to.x + NODE_W / 2, y2 = to.y;
+        const cy = (y1 + y2) / 2;
+        const d = 'M' + x1 + ',' + y1 + ' C' + x1 + ',' + cy + ' ' + x2 + ',' + cy + ' ' + x2 + ',' + y2;
+        s.appendChild(el('path', { d, fill: 'none', stroke: '#94a3b8', 'stroke-width': 1.25, 'marker-end': 'url(#arrow)' }));
+        if (e.label) {
+          const mx = (x1 + x2) / 2, my = cy;
+          const w = Math.max(e.label.length * 9 + 10, 28);
+          s.appendChild(el('rect', { x: mx - w / 2, y: my - 10, width: w, height: 18, rx: 4, fill: '#ffffff', stroke: '#e5e7eb' }));
+          const t = el('text', { x: mx, y: my + 3, 'text-anchor': 'middle', 'font-size': 11, fill: '#475569' });
+          t.textContent = e.label;
+          s.appendChild(t);
+        }
+      });
+      nodes.forEach(n => {
+        const p = pos[n.id];
+        const k = KIND_STYLE[n.kind] || KIND_STYLE.entry;
+        s.appendChild(el('rect', { x: p.x, y: p.y, width: NODE_W, height: NODE_H, rx: 10, fill: k.fill, stroke: k.stroke, 'stroke-width': n.kind === 'channel' ? 1.4 : 1 }));
+        const titleY = n.sub ? p.y + 24 : p.y + NODE_H / 2 + 4;
+        const title = el('text', { x: p.x + NODE_W / 2, y: titleY, 'text-anchor': 'middle', 'font-size': 12.5, 'font-weight': 600, fill: k.text });
+        title.textContent = n.title;
+        s.appendChild(title);
+        if (n.sub) {
+          const sub = el('text', { x: p.x + NODE_W / 2, y: p.y + 42, 'text-anchor': 'middle', 'font-size': 11, fill: k.text, opacity: 0.82 });
+          sub.textContent = n.sub;
+          s.appendChild(sub);
+        }
+      });
+      mount.innerHTML = '';
+      mount.appendChild(s);
+    }
+
+    // ========== Charts ==========
+
+    // Market share chart
+    drawBarChart(document.getElementById('chart-market-share'), {
+      categories: ['Arlo', 'Ring', 'EZVIZ', 'IMOU', 'Wyze', 'Reolink'],
+      series: [
+        { name: '付费订阅用户 (万)', data: [500, 800, 260, 100, 150, 30], tone: 'info' },
+        { name: 'App 月活 (万)', data: [600, 1000, 2600, 500, 400, 80], tone: 'success' },
+      ],
+      valueSuffix: '', height: 260,
+    });
+
+    // Subscription funnel
+    drawBarChart(document.getElementById('chart-funnel'), {
+      categories: ['硬件激活', 'App 注册', '试用开始', '试用转付费', '首次续费', '12月留存'],
+      series: [
+        { name: '当前转化率', data: [100, 85, 72, 18, 55, 35], tone: 'neutral' },
+        { name: 'MA 自动化后预期', data: [100, 90, 80, 28, 68, 50], tone: 'success' },
+      ],
+      valueSuffix: '%', height: 260,
+    });
+
+    // Benchmark comparison
+    drawBarChart(document.getElementById('chart-benchmark'), {
+      categories: ['推送点击率', '新客收入提升', 'DAU 涨幅', '订阅转化提升'],
+      series: [
+        { name: 'EngageLab 客户实证', data: [6.82, 11.5, 4.71, 11.5], tone: 'success' },
+        { name: '行业通用推送', data: [4, 0, 0, 0], tone: 'neutral' },
+        { name: 'Wyze × Braze', data: [0, 0, 0, 56], tone: 'info' },
+      ],
+      valueSuffix: '%', height: 260,
+    });
+
+    // Channel lift
+    drawLineChart(document.getElementById('chart-channel-lift'), {
+      categories: ['全量推送', '时间窗优化', '区域分流', '行为触发', '多阶段递进'],
+      series: [
+        { name: '推送点击率 (%)', data: [2.5, 3.8, 4.5, 5.6, 6.82], tone: 'success' },
+        { name: '转化提升 (%)', data: [0, 3, 6, 9, 11.5], tone: 'info' },
+      ],
+      valueSuffix: '%', height: 240,
+    });
+
+    // ========== Journey DAGs ==========
+
+    // J1: 试用转付费
+    drawJourney(document.getElementById('dag-j1'),
+      [
+        { id: 'start', kind: 'entry', title: '开始', sub: '事件: 试用开始 + 设备绑定' },
+        { id: 'cond_region', kind: 'branch', title: '条件分支', sub: '属性: 区域/币种' },
+        { id: 'push_d3', kind: 'channel', title: 'App Push', sub: '第3天 · 功能教育' },
+        { id: 'wait1', kind: 'wait', title: '等待', sub: '4 天' },
+        { id: 'push_d7', kind: 'channel', title: 'App Push', sub: '第7天 · 痛点触发' },
+        { id: 'wait2', kind: 'wait', title: '等待', sub: '4 天' },
+        { id: 'st1', kind: 'sendtime', title: '可发送时间', sub: '用户时区 09:00-19:00' },
+        { id: 'push_d3b', kind: 'channel', title: 'App Push', sub: '到期前3天 · 紧迫感' },
+        { id: 'wait3', kind: 'wait', title: '等待', sub: '2 天' },
+        { id: 'push_last', kind: 'channel', title: 'App Push', sub: '最后机会 · Last Chance' },
+        { id: 'wfe1', kind: 'branch', title: '条件判断', sub: '是否已付费？' },
+        { id: 'ok1', kind: 'exitOk', title: '付费成功', sub: '进入付费用户旅程' },
+        { id: 'end', kind: 'exitEnd', title: '结束', sub: '进入过期召回旅程' },
+      ],
+      [
+        { from: 'start', to: 'cond_region' },
+        { from: 'cond_region', to: 'push_d3', label: 'USD/GBP/EUR...' },
+        { from: 'push_d3', to: 'wait1' },
+        { from: 'wait1', to: 'push_d7' },
+        { from: 'push_d7', to: 'wait2' },
+        { from: 'wait2', to: 'st1' },
+        { from: 'st1', to: 'push_d3b' },
+        { from: 'push_d3b', to: 'wait3' },
+        { from: 'wait3', to: 'push_last' },
+        { from: 'push_last', to: 'wfe1' },
+        { from: 'wfe1', to: 'ok1', label: '已付费' },
+        { from: 'wfe1', to: 'end', label: '未付费' },
+      ]);
+
+    // J2: 续费提醒
+    drawJourney(document.getElementById('dag-j2'),
+      [
+        { id: 'start', kind: 'entry', title: '开始', sub: '属性: 到期前 7 天' },
+        { id: 'cond_type', kind: 'branch', title: '条件分支', sub: '自动续费 vs 手动续费' },
+        { id: 'st_auto', kind: 'sendtime', title: '可发送时间', sub: '用户时区 08:00-10:00' },
+        { id: 'push_auto', kind: 'channel', title: 'App Push', sub: '自动续费确认提醒' },
+        { id: 'ok_auto', kind: 'exitOk', title: '续费成功', sub: '' },
+        { id: 'push_7d', kind: 'channel', title: 'App Push', sub: '到期前 7 天提醒' },
+        { id: 'wait_3d', kind: 'wait', title: '等待', sub: '4 天' },
+        { id: 'push_3d', kind: 'channel', title: 'App Push', sub: '到期前 3 天 · 限时优惠' },
+        { id: 'wait_1d', kind: 'wait', title: '等待', sub: '2 天' },
+        { id: 'push_1d', kind: 'channel', title: 'App Push', sub: '明天到期 · Recordings will stop' },
+        { id: 'wfe', kind: 'branch', title: '条件判断', sub: '是否已续费？' },
+        { id: 'ok_manual', kind: 'exitOk', title: '续费成功', sub: '' },
+        { id: 'end', kind: 'exitEnd', title: '结束', sub: '进入过期召回' },
+      ],
+      [
+        { from: 'start', to: 'cond_type' },
+        { from: 'cond_type', to: 'st_auto', label: '自动续费' },
+        { from: 'cond_type', to: 'push_7d', label: '手动续费' },
+        { from: 'st_auto', to: 'push_auto' },
+        { from: 'push_auto', to: 'ok_auto' },
+        { from: 'push_7d', to: 'wait_3d' },
+        { from: 'wait_3d', to: 'push_3d' },
+        { from: 'push_3d', to: 'wait_1d' },
+        { from: 'wait_1d', to: 'push_1d' },
+        { from: 'push_1d', to: 'wfe' },
+        { from: 'wfe', to: 'ok_manual', label: '已续费' },
+        { from: 'wfe', to: 'end', label: '未续费' },
+      ]);
+
+    // J3: 过期用户分层召回
+    drawJourney(document.getElementById('dag-j3'),
+      [
+        { id: 'start', kind: 'entry', title: '开始', sub: '属性: 订阅已过期' },
+        { id: 'wait_3d', kind: 'wait', title: '等待', sub: '3 天' },
+        { id: 'push1', kind: 'channel', title: 'App Push', sub: '录像已暂停提醒' },
+        { id: 'wait_7d', kind: 'wait', title: '等待', sub: '7 天' },
+        { id: 'cond_device', kind: 'branch', title: '行为触发', sub: '设备是否仍有事件上报' },
+        { id: 'push_active', kind: 'channel', title: 'App Push', sub: '在用未录 · 强化痛点' },
+        { id: 'push_offline', kind: 'channel', title: 'App Push', sub: '设备离线 · 安全召回' },
+        { id: 'wait_15d', kind: 'wait', title: '等待', sub: '15 天' },
+        { id: 'push_promo', kind: 'channel', title: 'App Push', sub: '限时 50% off 召回' },
+        { id: 'wait_30d', kind: 'wait', title: '等待', sub: '到过期 30 天' },
+        { id: 'push_final', kind: 'channel', title: 'App Push', sub: '数据将被删除 · 最终提醒' },
+        { id: 'end', kind: 'exitEnd', title: '结束', sub: '' },
+      ],
+      [
+        { from: 'start', to: 'wait_3d' },
+        { from: 'wait_3d', to: 'push1' },
+        { from: 'push1', to: 'wait_7d' },
+        { from: 'wait_7d', to: 'cond_device' },
+        { from: 'cond_device', to: 'push_active', label: '设备在用' },
+        { from: 'cond_device', to: 'push_offline', label: '设备离线' },
+        { from: 'push_active', to: 'wait_15d' },
+        { from: 'push_offline', to: 'wait_15d' },
+        { from: 'wait_15d', to: 'push_promo' },
+        { from: 'push_promo', to: 'wait_30d' },
+        { from: 'wait_30d', to: 'push_final' },
+        { from: 'push_final', to: 'end' },
+      ]);
+
+    // J4: 支付失败挽留
+    drawJourney(document.getElementById('dag-j4'),
+      [
+        { id: 'start', kind: 'entry', title: '开始', sub: '事件: 支付失败' },
+        { id: 'cond_paid', kind: 'branch', title: '条件分支', sub: '本月是否已支付？' },
+        { id: 'ok_paid', kind: 'exitOk', title: '已支付', sub: '无需干预' },
+        { id: 'st4', kind: 'sendtime', title: '可发送时间', sub: '08:00-10:00 / 15:00-17:00' },
+        { id: 'push1', kind: 'channel', title: 'App Push', sub: '支付异常 · 更新卡信息' },
+        { id: 'wait_3d', kind: 'wait', title: '等待', sub: '3 天' },
+        { id: 'cond2', kind: 'branch', title: '条件判断', sub: '是否已恢复支付？' },
+        { id: 'ok2', kind: 'exitOk', title: '支付恢复', sub: '' },
+        { id: 'push2', kind: 'channel', title: 'App Push', sub: 'Payment is Back! 二次提醒' },
+        { id: 'end', kind: 'exitEnd', title: '结束', sub: '进入过期召回' },
+      ],
+      [
+        { from: 'start', to: 'cond_paid' },
+        { from: 'cond_paid', to: 'ok_paid', label: '已支付' },
+        { from: 'cond_paid', to: 'st4', label: '未支付' },
+        { from: 'st4', to: 'push1' },
+        { from: 'push1', to: 'wait_3d' },
+        { from: 'wait_3d', to: 'cond2' },
+        { from: 'cond2', to: 'ok2', label: '已恢复' },
+        { from: 'cond2', to: 'push2', label: '未恢复' },
+        { from: 'push2', to: 'end' },
+      ]);
+
+    // J5: 沉默用户分层促活
+    drawJourney(document.getElementById('dag-j5'),
+      [
+        { id: 'start', kind: 'entry', title: '开始', sub: '全量注册用户' },
+        { id: 'cond_rfm', kind: 'branch', title: '条件分支', sub: '最近 X 天是否打开 App' },
+        { id: 'push_3d', kind: 'channel', title: 'App Push', sub: '3天 · Check out what\'s new' },
+        { id: 'cond_dev', kind: 'branch', title: '设备状态', sub: '设备在线 or 离线' },
+        { id: 'push_7d_on', kind: 'channel', title: 'App Push', sub: '7天 · Camera detected activity' },
+        { id: 'push_7d_off', kind: 'channel', title: 'App Push', sub: '7天 · Is everything okay?' },
+        { id: 'push_14d', kind: 'channel', title: 'App Push', sub: '14天 · Stay connected' },
+        { id: 'wait_7d', kind: 'wait', title: '等待', sub: '7 天' },
+        { id: 'push_final', kind: 'channel', title: 'App Push', sub: '最终召回 · We miss you' },
+        { id: 'end', kind: 'exitEnd', title: '结束', sub: '' },
+      ],
+      [
+        { from: 'start', to: 'cond_rfm' },
+        { from: 'cond_rfm', to: 'push_3d', label: '3天未活跃' },
+        { from: 'cond_rfm', to: 'cond_dev', label: '7天未活跃' },
+        { from: 'cond_rfm', to: 'push_14d', label: '14天未活跃' },
+        { from: 'cond_dev', to: 'push_7d_on', label: '设备在线' },
+        { from: 'cond_dev', to: 'push_7d_off', label: '设备离线' },
+        { from: 'push_3d', to: 'end' },
+        { from: 'push_7d_on', to: 'end' },
+        { from: 'push_7d_off', to: 'end' },
+        { from: 'push_14d', to: 'wait_7d' },
+        { from: 'wait_7d', to: 'push_final' },
+        { from: 'push_final', to: 'end' },
+      ]);
+
+    // J6: 广告变现精准投放
+    drawJourney(document.getElementById('dag-j6'),
+      [
+        { id: 'start', kind: 'entry', title: '开始', sub: '全量活跃用户' },
+        { id: 'cond_active', kind: 'branch', title: '条件分支', sub: '活跃天数 ≥ 35 & 重点用户' },
+        { id: 'ok_skip', kind: 'exitEnd', title: '不符合条件', sub: '跳过' },
+        { id: 'track', kind: 'wait', title: '追踪事件', sub: '广告展示/点击事件' },
+        { id: 'cond_type', kind: 'branch', title: '广告类型', sub: 'Reward vs Splash' },
+        { id: 'push_reward', kind: 'channel', title: 'AppPush 自定义', sub: 'Reward & Discover 广告' },
+        { id: 'push_splash', kind: 'channel', title: 'AppPush 自定义', sub: 'Splash & Interstitial 广告' },
+        { id: 'end', kind: 'exitEnd', title: '结束', sub: '' },
+      ],
+      [
+        { from: 'start', to: 'cond_active' },
+        { from: 'cond_active', to: 'ok_skip', label: '不符合' },
+        { from: 'cond_active', to: 'track', label: '符合' },
+        { from: 'track', to: 'cond_type' },
+        { from: 'cond_type', to: 'push_reward', label: 'Reward' },
+        { from: 'cond_type', to: 'push_splash', label: 'Splash' },
+        { from: 'push_reward', to: 'end' },
+        { from: 'push_splash', to: 'end' },
+      ]);
+
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EngageLab MA · 新式茶饮出海行业增长方案</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f7f8fa;
+      --bg-elev: #ffffff;
+      --border: #e5e7eb;
+      --border-strong: #d1d5db;
+      --text: #111827;
+      --text-2: #374151;
+      --text-3: #6b7280;
+      --text-4: #9ca3af;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --success: #16a34a;
+      --success-soft: #dcfce7;
+      --warning: #d97706;
+      --warning-soft: #fef3c7;
+      --info: #0369a1;
+      --info-soft: #e0f2fe;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg-soft); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; font-size: 15px; }
+
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 28px 80px; }
+
+    h1 { font-size: 30px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; color: var(--text); }
+    h2 { font-size: 22px; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.005em; color: var(--text); }
+    h3 { font-size: 17px; font-weight: 600; margin: 0 0 10px; color: var(--text); }
+    p { margin: 0 0 8px; color: var(--text-2); }
+    .muted { color: var(--text-3); }
+    .small { font-size: 13px; }
+    .bold { font-weight: 600; }
+
+    .section { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 26px; margin-bottom: 20px; }
+    .section-plain { padding: 6px 2px 18px; margin-bottom: 12px; }
+    .divider { height: 1px; background: var(--border); margin: 16px 0; border: none; }
+
+    .hero { background: linear-gradient(180deg, #fff 0%, #f0fdf4 100%);
+      border: 1px solid var(--border); border-radius: 14px; padding: 28px 30px;
+      margin-bottom: 24px; }
+    .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .hero-subtitle { color: var(--text-3); font-size: 15px; max-width: 900px; margin: 8px 0 18px; }
+
+    .pill { display: inline-flex; align-items: center; padding: 2px 10px;
+      font-size: 12px; border-radius: 999px; border: 1px solid var(--border-strong);
+      color: var(--text-2); background: #fff; font-weight: 500; }
+    .pill-accent { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+    .pill-info { background: var(--info-soft); border-color: var(--info); color: var(--info); }
+    .pill-success { background: var(--success-soft); border-color: var(--success); color: var(--success); }
+    .pill-warn { background: var(--warning-soft); border-color: var(--warning); color: var(--warning); }
+
+    .grid { display: grid; gap: 16px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+    .grid-1-2 { grid-template-columns: 1fr 2fr; }
+    .grid-2-1 { grid-template-columns: 1.4fr 1fr; }
+    .grid-12-1 { grid-template-columns: 1.2fr 1fr; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .stat { padding: 14px 16px; background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); }
+    .stat-value { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: var(--text);
+      line-height: 1.15; }
+    .stat-value.success { color: var(--success); }
+    .stat-value.info { color: var(--info); }
+    .stat-value.warn { color: var(--warning); }
+
+    .stat-label { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+
+    .card { background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; }
+    .card-header { padding: 10px 16px; border-bottom: 1px solid var(--border);
+      background: #fafbfc; font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .card-body { padding: 16px; }
+    .card-body.p-sm { padding: 12px; }
+    .card-body ul { margin: 0; padding-left: 18px; }
+    .card-body li { margin-bottom: 4px; font-size: 13.5px; color: var(--text-2); }
+
+    .callout { padding: 12px 14px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); border-left-width: 3px; background: var(--bg-soft); }
+    .callout-title { font-weight: 600; margin-bottom: 4px; font-size: 14px; }
+    .callout-body { font-size: 13px; color: var(--text-2); }
+    .callout-body p { font-size: 13px; color: var(--text-2); margin: 0 0 4px; }
+    .callout.info { border-left-color: var(--info); background: var(--info-soft); }
+    .callout.info .callout-title { color: var(--info); }
+    .callout.success { border-left-color: var(--success); background: var(--success-soft); }
+    .callout.success .callout-title { color: var(--success); }
+    .callout.warn { border-left-color: var(--warning); background: var(--warning-soft); }
+    .callout.warn .callout-title { color: var(--warning); }
+    .callout.neutral { border-left-color: var(--text-3); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border);
+      color: var(--text-2); vertical-align: middle; }
+    th { background: #fafbfc; font-weight: 600; font-size: 12.5px; color: var(--text-3);
+      letter-spacing: 0.01em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    tr.tone-success td { background: rgba(22, 163, 74, 0.04); }
+    tr.tone-info td { background: rgba(3, 105, 161, 0.04); }
+
+    .signal-row { display: flex; gap: 10px; padding: 10px 0;
+      border-bottom: 1px solid var(--border); align-items: center; }
+    .signal-row:last-child { border-bottom: 0; }
+    .signal-row .left { flex: 1; min-width: 0; }
+    .signal-row .label { font-size: 13px; font-weight: 600; }
+    .signal-row .hint { font-size: 12px; color: var(--text-3); }
+    .signal-row .value { font-weight: 700; color: var(--text); font-size: 14px; white-space: nowrap; }
+
+    .chart { width: 100%; }
+    .chart svg { width: 100%; height: auto; display: block; }
+    .chart-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .chart-legend .leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-3); }
+    .chart-legend .dot { width: 10px; height: 10px; border-radius: 2px; }
+
+    .dag-wrap { overflow-x: auto; padding: 8px 2px; }
+    .dag-wrap svg { display: block; margin: 0 auto; }
+
+    .toc-bar { position: sticky; top: 0; background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+      z-index: 10; padding: 10px 28px; margin: -32px -28px 24px;
+      font-size: 12.5px; }
+    .toc-bar .toc-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 14px;
+      align-items: center; overflow-x: auto; }
+    .toc-bar a { color: var(--text-3); text-decoration: none; white-space: nowrap; padding: 4px 2px; }
+    .toc-bar a:hover { color: var(--accent); }
+    .toc-bar .brand { font-weight: 700; color: var(--text); }
+
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 0; }
+      .toc-bar { display: none; }
+      .section, .card, .hero { page-break-inside: avoid; box-shadow: none; }
+      h2 { page-break-after: avoid; }
+      .hero { break-before: avoid; }
+      .dag-wrap { overflow: visible; }
+      .dag-wrap svg { max-width: 100%; }
+    }
+
+    .spacer-sm { height: 6px; }
+    .spacer-md { height: 12px; }
+
+    .step-num { display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft);
+      color: var(--accent); font-weight: 700; font-size: 12px; margin-right: 8px; }
+
+    footer.site-footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-4); text-align: center; }
+  </style>
+</head>
+<body>
+  <nav class="toc-bar">
+    <div class="toc-inner">
+      <span class="brand">EngageLab MA · 新式茶饮出海方案</span>
+      <a href="#s-market">市场机会</a>
+      <a href="#s-funnel">用户漏斗</a>
+      <a href="#s-why">为什么 EngageLab</a>
+      <a href="#s-scenarios">六大场景</a>
+      <a href="#s-journey1">旅程示意</a>
+      <a href="#s-benchmark">对标参考</a>
+      <a href="#s-compliance">合规安全</a>
+      <a href="#s-plan">测试计划</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-pills">
+        <span class="pill pill-success">新式茶饮 · 连锁出海</span>
+        <span class="pill">全球新兴市场</span>
+        <span class="pill">东南亚 · 东亚 · 欧洲 · 北美</span>
+      </div>
+      <h1>EngageLab MA · 新式茶饮出海行业增长方案</h1>
+      <p class="hero-subtitle">
+        面向全球市场的中国新式茶饮、咖啡连锁品牌——
+        将"开店即增长"升级为"每位会员全生命周期的自动化复购驱动"，
+        以 <span class="bold">新客首单激活、沉睡会员唤醒、弃单挽回、新品精准推送</span> 四个高价值旅程切入，
+        4 周内完成测试、可量化验收。
+      </p>
+      <hr class="divider" />
+      <div class="grid grid-4">
+        <div class="stat"><div class="stat-value">$5.5B+</div><div class="stat-label">全球茶饮市场规模 (2026)</div></div>
+        <div class="stat"><div class="stat-value info">9.5%</div><div class="stat-label">全球茶饮市场 CAGR</div></div>
+        <div class="stat"><div class="stat-value success">3.6×</div><div class="stat-label">MA 自动化弃单恢复效果倍数</div></div>
+        <div class="stat"><div class="stat-value success">+43%</div><div class="stat-label">自动化旅程提升季度复购率</div></div>
+      </div>
+    </section>
+
+    <!-- 1. Market Background -->
+    <section id="s-market" class="section-plain">
+      <h2>一、为什么出海茶饮品牌必须升级用户运营</h2>
+      <p>
+        中国新式茶饮出海正从"开店竞赛"进入"留客竞赛"阶段。头部品牌海外门店已突破数百家，
+        单纯依赖新店开业流量无法维持增长——用户从"进店消费一次"到"成为高频复购会员"之间存在巨大的转化断层。
+        行业公开数据显示：有完善会员自动化运营体系的茶饮品牌，复购率是没有体系品牌的 <span class="bold">1.5-2 倍</span>。
+        运营层的<span class="bold">"行为触发 + 分层触达 + 全渠道编排"</span>是下一个可被明确量化的复购增长杠杆。
+      </p>
+      <div class="spacer-md"></div>
+      <div class="grid grid-12-1">
+        <div class="card">
+          <div class="card-header">出海核心市场触达渠道渗透率（%）</div>
+          <div class="card-body">
+            <div class="chart" id="chart-channel-penetration"></div>
+            <p class="small muted" style="margin-top:10px">
+              不同出海市场的主流触达渠道差异显著——WhatsApp 在马来西亚、印尼渗透率超 90%，
+              LINE 是泰国核心渠道（92%），SMS 在韩国和日本仍是重要补充。
+              全渠道编排能力决定了能否在不同市场高效触达用户。
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">核心业务信号</div>
+          <div class="card-body" style="padding:12px 14px;">
+            <div class="signal-row"><div class="left"><div class="label">海外 App 注册→首单转化</div><div class="hint">大量用户注册后未完成首次下单</div></div><div class="value" style="color:var(--danger)">30-40%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">30 日内复购率（无 MA）</div><div class="hint">缺乏自动化提醒导致复购延迟</div></div><div class="value" style="color:var(--warning)">25-30%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">App 点单弃单率</div><div class="hint">用户浏览菜单/加入购物车后未下单</div></div><div class="value" style="color:var(--danger)">35-50%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">60 天沉默会员占比</div><div class="hint">注册会员中超过 60 天未消费的比例</div></div><div class="value" style="color:var(--danger)">40-55%</div></div>
+            <div class="signal-row"><div class="left"><div class="label">多语言运营复杂度</div><div class="hint">覆盖 6-10 种语言、多时区同时运营</div></div><div class="value" style="color:var(--warning)">高</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. User Funnel -->
+    <section id="s-funnel" class="section-plain">
+      <h2>二、用户漏斗：每层都有明确的复购增长空间</h2>
+      <p>
+        从门店消费到成为 App 高频复购会员，每一步都存在可被 MA 自动化挽回的流失点。
+        行业案例表明，每个环节的精细化运营都能带来可量化的转化提升。
+      </p>
+      <div class="spacer-md"></div>
+      <div class="card">
+        <div class="card-header">新式茶饮出海用户漏斗 · 当前 vs MA 自动化后</div>
+        <div class="card-body">
+          <div class="chart" id="chart-funnel"></div>
+        </div>
+      </div>
+      <div class="spacer-md"></div>
+      <div class="grid grid-3">
+        <div class="callout success">
+          <div class="callout-title">新客激活 +40%</div>
+          <div class="callout-body"><p>通过 Welcome Journey + 首单优惠自动触发，将注册→首单转化率从 35% 提升至 49%</p></div>
+        </div>
+        <div class="callout info">
+          <div class="callout-title">弃单恢复 3.6×</div>
+          <div class="callout-body"><p>行为触发的弃单追回旅程，恢复率提升 3.6 倍，直接挽回流失收入</p></div>
+        </div>
+        <div class="callout warn">
+          <div class="callout-title">沉睡唤醒 +51%</div>
+          <div class="callout-body"><p>分层沉默召回旅程配合新品/活动钩子，唤醒率可达 51%</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Why EngageLab -->
+    <section id="s-why" class="section-plain">
+      <h2>三、为什么选择 EngageLab MA</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-header">高可靠消息底座</div>
+          <div class="card-body">
+            <ul>
+              <li>Push 送达率 99%+，秒级触达</li>
+              <li>WhatsApp Business API 官方对接</li>
+              <li>全球多节点，低延迟覆盖</li>
+              <li>单日亿级消息处理能力</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">全渠道出海原生</div>
+          <div class="card-body">
+            <ul>
+              <li>App Push + WhatsApp + SMS + Email + Web Push</li>
+              <li>LINE / Telegram / Messenger 即将上线</li>
+              <li>AI 多语言文案生成，一套旅程覆盖多国</li>
+              <li>终端用户时区发送，尊重本地生活节奏</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">AI × 旅程编排</div>
+          <div class="card-body">
+            <ul>
+              <li>零代码可视化旅程搭建</li>
+              <li>最佳发送时机 AI 自动优化</li>
+              <li>条件分流对比（A/B 测试）</li>
+              <li>事件触发 + 用户属性多维分群</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="spacer-md"></div>
+      <div class="section">
+        <h3>渠道角色定位（茶饮出海适配）</h3>
+        <table>
+          <thead><tr><th>渠道</th><th>成本</th><th>茶饮行业核心用途</th><th>重点市场</th></tr></thead>
+          <tbody>
+            <tr><td>App Push</td><td>≈ 0</td><td>高频复购提醒、新品通知、积分到期、门店动态</td><td>全球</td></tr>
+            <tr><td>WhatsApp</td><td>$0.005–0.02</td><td>弃单挽回、互动式菜单推荐、新店开业通知、客服</td><td>马来西亚 / 印尼 / 新加坡</td></tr>
+            <tr><td>SMS</td><td>$0.02–0.04</td><td>验证码 + 营销兜底（无 App 用户触达）</td><td>韩国 / 日本 / 美国</td></tr>
+            <tr><td>Email</td><td>$0.0003</td><td>会员月报、生日礼、储值续充提醒</td><td>欧美市场</td></tr>
+            <tr><td>Web Push</td><td>≈ 0</td><td>官网访客引导下载 App / 新品预告</td><td>全球</td></tr>
+            <tr class="tone-info"><td>LINE（即将上线）</td><td>—</td><td>泰国核心触达渠道，92% 互联网用户覆盖</td><td>泰国 / 日本</td></tr>
+            <tr class="tone-info"><td>Telegram（即将上线）</td><td>—</td><td>Bot 互动式点单、社群通知</td><td>中东 / 印度</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Scenario Overview -->
+    <section id="s-scenarios" class="section-plain">
+      <h2>四、高 ROI 运营场景总览</h2>
+      <p>以下 6 大场景覆盖茶饮出海品牌用户全生命周期，每个场景均有行业验证数据支撑。</p>
+      <div class="spacer-sm"></div>
+      <table>
+        <thead><tr><th>场景</th><th>生命周期阶段</th><th>渠道组合</th><th>亮点</th><th>预期效果</th></tr></thead>
+        <tbody>
+          <tr class="tone-success"><td>新客首单激活</td><td>注册→首单</td><td>App Push + WhatsApp</td><td>Welcome Journey + 首单券自动下发 + 功能引导</td><td>注册→首单转化 +40%</td></tr>
+          <tr><td>沉睡会员唤醒</td><td>沉默 15/30/60 天</td><td>App Push + WhatsApp + SMS</td><td>RFM 分层 + 新品/活动钩子 + 递进触达</td><td>唤醒率 30-51%</td></tr>
+          <tr class="tone-success"><td>弃单/浏览未下单挽回</td><td>下单中断</td><td>App Push + WhatsApp</td><td>行为触发 30 分钟内追回 + 限时优惠</td><td>弃单恢复 3.6×</td></tr>
+          <tr><td>新品上市精准推送</td><td>全生命周期</td><td>App Push + WhatsApp</td><td>按口味偏好/历史购买分群 + AI 多语言文案</td><td>新品首周 GMV +16%</td></tr>
+          <tr class="tone-info"><td>新店开业周边引流</td><td>拉新/激活</td><td>App Push + SMS + WhatsApp</td><td>地理围栏 + 开业专属优惠 + 倒计时</td><td>开业首周客流 +25%</td></tr>
+          <tr><td>生日/注册周年关怀</td><td>忠诚维护</td><td>App Push + WhatsApp</td><td>每年当日自动触发 + 专属生日饮品券</td><td>生日月复购 +35%</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. Journey Details -->
+    <section id="s-journey1" class="section-plain">
+      <h2>五、核心旅程详细编排</h2>
+
+      <!-- Journey 1 -->
+      <div class="section" style="margin-top:16px;">
+        <h3>旅程 1：新客首单激活</h3>
+        <div class="grid grid-2-1">
+          <div class="dag-wrap" id="dag-j1"></div>
+          <div>
+            <div class="callout neutral" style="margin-bottom:12px">
+              <div class="callout-title">业务痛点</div>
+              <div class="callout-body">
+                <p>用户下载 App 注册后，大量停留在"有账号无消费"状态。缺乏即时引导，注册→首单转化率仅 30-40%。</p>
+              </div>
+            </div>
+            <div class="callout info" style="margin-bottom:12px">
+              <div class="callout-title">旅程组件配置</div>
+              <div class="callout-body">
+                <p><strong>进入条件：</strong>事件: 用户注册成功</p>
+                <p><strong>提前退出：</strong>事件: 完成首次下单</p>
+                <p><strong>转化统计：</strong>事件: 下单成功，监听 7 天</p>
+                <p><strong>再次进入：</strong>不可（注册为一次性事件）</p>
+                <p><strong>可发送时间：</strong>每天 9:00-21:00，终端时区</p>
+              </div>
+            </div>
+            <div class="callout success">
+              <div class="callout-title">预期效益</div>
+              <div class="callout-body">
+                <p>注册→首单转化率从 35% 提升至 49%（+40%）</p>
+                <p>参考：东南亚头部茶饮品牌首次打开转化 +40%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journey 2 -->
+      <div class="section">
+        <h3>旅程 2：沉睡会员分层唤醒</h3>
+        <div class="grid grid-2-1">
+          <div class="dag-wrap" id="dag-j2"></div>
+          <div>
+            <div class="callout neutral" style="margin-bottom:12px">
+              <div class="callout-title">业务痛点</div>
+              <div class="callout-body">
+                <p>注册会员中超过 40% 在 60 天内无消费记录，沉默用户占比逐月累积。缺乏分层触达导致"一刀切"召回效果差。</p>
+              </div>
+            </div>
+            <div class="callout info" style="margin-bottom:12px">
+              <div class="callout-title">旅程组件配置</div>
+              <div class="callout-body">
+                <p><strong>进入条件：</strong>属性: 最后下单时间距今超过 15 天</p>
+                <p><strong>提前退出：</strong>事件: 下单成功</p>
+                <p><strong>转化统计：</strong>事件: 下单成功，监听 14 天</p>
+                <p><strong>再次进入：</strong>允许，间隔 30 天</p>
+                <p><strong>条件分支：</strong>按最后下单距今天数（15/30/60 天）分流</p>
+              </div>
+            </div>
+            <div class="callout success">
+              <div class="callout-title">预期效益</div>
+              <div class="callout-body">
+                <p>沉睡会员唤醒率 30-51%</p>
+                <p>参考：中国头部茶饮品牌新品上市配合唤醒旅程，唤醒率达 51%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journey 3 -->
+      <div class="section">
+        <h3>旅程 3：弃单 / 浏览未下单挽回</h3>
+        <div class="grid grid-2-1">
+          <div class="dag-wrap" id="dag-j3"></div>
+          <div>
+            <div class="callout neutral" style="margin-bottom:12px">
+              <div class="callout-title">业务痛点</div>
+              <div class="callout-body">
+                <p>用户在 App 内浏览菜单、加入购物车后未完成下单，弃单率高达 35-50%。每一单弃单都是可直接挽回的收入。</p>
+              </div>
+            </div>
+            <div class="callout info" style="margin-bottom:12px">
+              <div class="callout-title">旅程组件配置</div>
+              <div class="callout-body">
+                <p><strong>进入条件：</strong>事件: 加入购物车 或 浏览菜单超过 3 分钟</p>
+                <p><strong>提前退出：</strong>事件: 下单成功</p>
+                <p><strong>转化统计：</strong>事件: 下单成功，监听 3 天</p>
+                <p><strong>再次进入：</strong>允许，间隔 1 天</p>
+                <p><strong>等待事件：</strong>等待 30 分钟看是否自行下单</p>
+              </div>
+            </div>
+            <div class="callout success">
+              <div class="callout-title">预期效益</div>
+              <div class="callout-body">
+                <p>弃单恢复率提升 3.6 倍</p>
+                <p>参考：东南亚头部茶饮品牌弃单/菜单浏览恢复提升 3.6×</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journey 4 -->
+      <div class="section">
+        <h3>旅程 4：新品上市精准推送</h3>
+        <div class="grid grid-2-1">
+          <div class="dag-wrap" id="dag-j4"></div>
+          <div>
+            <div class="callout neutral" style="margin-bottom:12px">
+              <div class="callout-title">业务痛点</div>
+              <div class="callout-body">
+                <p>新品上市依赖全量推送，打扰非目标用户导致退订率上升。不同市场口味偏好差异大，缺乏个性化匹配能力。</p>
+              </div>
+            </div>
+            <div class="callout info" style="margin-bottom:12px">
+              <div class="callout-title">旅程组件配置</div>
+              <div class="callout-body">
+                <p><strong>进入条件：</strong>属性: 最后下单时间距今不超过 60 天（活跃会员）</p>
+                <p><strong>条件分支：</strong>按历史购买口味偏好分流（奶茶/果茶/纯茶/咖啡）</p>
+                <p><strong>转化统计：</strong>事件: 购买新品，监听 7 天</p>
+                <p><strong>可发送时间：</strong>每天 10:00-20:00，终端时区</p>
+                <p><strong>AI 文案：</strong>根据用户语言自动生成本地化推送文案</p>
+              </div>
+            </div>
+            <div class="callout success">
+              <div class="callout-title">预期效益</div>
+              <div class="callout-body">
+                <p>新品首周 GMV 周环比 +16%</p>
+                <p>参考：中国头部茶饮品牌新品系列上市首周 GMV 周环比增长 16.2%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journey 5 -->
+      <div class="section">
+        <h3>旅程 5：新店开业周边引流</h3>
+        <div class="grid grid-2-1">
+          <div class="dag-wrap" id="dag-j5"></div>
+          <div>
+            <div class="callout neutral" style="margin-bottom:12px">
+              <div class="callout-title">业务痛点</div>
+              <div class="callout-body">
+                <p>新店开业依赖自然客流和社交媒体曝光，缺乏精准触达周边已注册会员的能力。开业首周是建立口碑的黄金窗口。</p>
+              </div>
+            </div>
+            <div class="callout info" style="margin-bottom:12px">
+              <div class="callout-title">旅程组件配置</div>
+              <div class="callout-body">
+                <p><strong>进入条件：</strong>属性: 用户所在城市 = 新店城市</p>
+                <p><strong>提前退出：</strong>事件: 在新店完成消费</p>
+                <p><strong>转化统计：</strong>事件: 新店门店下单，监听 14 天</p>
+                <p><strong>渠道组合：</strong>App Push + WhatsApp + SMS（分层降级）</p>
+                <p><strong>可发送时间：</strong>每天 10:00-19:00，终端时区</p>
+              </div>
+            </div>
+            <div class="callout success">
+              <div class="callout-title">预期效益</div>
+              <div class="callout-body">
+                <p>开业首周客流提升 +25%</p>
+                <p>已有会员到新店消费的激活率 +30%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journey 6 -->
+      <div class="section">
+        <h3>旅程 6：生日 / 注册周年日关怀</h3>
+        <div class="grid grid-2-1">
+          <div class="dag-wrap" id="dag-j6"></div>
+          <div>
+            <div class="callout neutral" style="margin-bottom:12px">
+              <div class="callout-title">业务痛点</div>
+              <div class="callout-body">
+                <p>生日是用户对品牌好感度最高的时刻，但多数品牌仅在生日当天发一条祝福，缺乏提前预热和后续引导消费的闭环。</p>
+              </div>
+            </div>
+            <div class="callout info" style="margin-bottom:12px">
+              <div class="callout-title">旅程组件配置</div>
+              <div class="callout-body">
+                <p><strong>进入条件：</strong>属性: 生日日期，每年当日触发</p>
+                <p><strong>提前退出：</strong>事件: 使用生日券下单</p>
+                <p><strong>转化统计：</strong>事件: 下单成功（含生日券），监听 7 天</p>
+                <p><strong>再次进入：</strong>允许，间隔 30 天（靠进入条件控制年度频率）</p>
+              </div>
+            </div>
+            <div class="callout success">
+              <div class="callout-title">预期效益</div>
+              <div class="callout-body">
+                <p>生日月消费频次提升 +35%</p>
+                <p>生日券核销率 60%+</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Benchmark -->
+    <section id="s-benchmark" class="section-plain">
+      <h2>六、行业标杆案例对照</h2>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-header">茶饮/QSR 行业 MA 实施效果对比</div>
+        <div class="card-body">
+          <table>
+            <thead><tr><th>案例</th><th>场景</th><th>核心指标</th><th>效果</th></tr></thead>
+            <tbody>
+              <tr class="tone-success"><td>东南亚头部茶饮连锁（800+ 门店）</td><td>弃单/菜单浏览恢复</td><td>恢复率</td><td>提升 <strong>3.6×</strong></td></tr>
+              <tr class="tone-success"><td>东南亚头部茶饮连锁</td><td>首次 App 打开→下单</td><td>转化率</td><td>提升 <strong>+40%</strong></td></tr>
+              <tr class="tone-success"><td>东南亚头部茶饮连锁</td><td>自动化复购旅程</td><td>季度复购率</td><td>提升 <strong>+43%</strong></td></tr>
+              <tr><td>中国头部茶饮品牌</td><td>新品上市 + 沉睡唤醒</td><td>沉睡会员唤醒率</td><td><strong>51%</strong></td></tr>
+              <tr><td>中国头部茶饮品牌</td><td>新品系列上市</td><td>首周 GMV 周环比</td><td><strong>+16.2%</strong></td></tr>
+              <tr><td>全球头部 QSR 连锁</td><td>弃单恢复旅程</td><td>转化率</td><td>提升 <strong>6.75×</strong></td></tr>
+              <tr><td>全球头部 QSR 连锁</td><td>新用户激活旅程</td><td>激活率</td><td>提升 <strong>+18.7%</strong></td></tr>
+              <tr><td>全球咖啡连锁标杆</td><td>AI 个性化推送</td><td>重复到店率</td><td>提升 <strong>+25%</strong></td></tr>
+              <tr><td>全球咖啡连锁标杆</td><td>忠诚度计划</td><td>会员营收占比</td><td><strong>58%</strong></td></tr>
+              <tr><td>北美连锁咖啡品牌</td><td>SMS 忠诚度计划</td><td>会员交易占比</td><td><strong>92%</strong></td></tr>
+              <tr><td>全球茶饮连锁（25 国）</td><td>自助点单机 + 会员注册</td><td>会员注册率</td><td><strong>80%+</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">核心指标行业基准 vs MA 自动化后预期</div>
+        <div class="card-body">
+          <div class="chart" id="chart-benchmark"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Compliance -->
+    <section id="s-compliance" class="section-plain">
+      <h2>七、合规与安全</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-header">数据安全</div>
+          <div class="card-body">
+            <ul>
+              <li>全链路 TLS 加密传输</li>
+              <li>VPC 隔离部署，数据物理隔离</li>
+              <li>PII 脱敏处理，用户手机号/邮箱加密存储</li>
+              <li>RBAC 角色权限控制</li>
+              <li>可按客户安全需求灵活扩展</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">认证与合规</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>GDPR</strong> 合规——欧盟数据保护条例</li>
+              <li><strong>SOC 2</strong> 认证——安全/可用性/保密性</li>
+              <li>可协助客户满足各目标市场本地数据保护法规要求</li>
+              <li>消息发送记录保留 60 天，支持审计追溯</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="spacer-md"></div>
+      <div class="card">
+        <div class="card-header">运营护栏</div>
+        <div class="card-body">
+          <div class="grid grid-4">
+            <div><strong>频控策略</strong><br><span class="small muted">每日/每周消息上限，避免过度打扰</span></div>
+            <div><strong>勿扰时段</strong><br><span class="small muted">按终端时区自动适配当地作息</span></div>
+            <div><strong>内容预览</strong><br><span class="small muted">发送前支持样式预览确认</span></div>
+            <div><strong>消息记录</strong><br><span class="small muted">60 天完整发送记录留存</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Test Plan -->
+    <section id="s-plan" class="section-plain">
+      <h2>八、测试计划（4 周）</h2>
+      <div class="grid grid-4">
+        <div class="card">
+          <div class="card-header">第 1 周：对齐 + 埋点</div>
+          <div class="card-body">
+            <ul>
+              <li>确认核心事件埋点方案（注册、下单、加购、浏览菜单等）</li>
+              <li>App SDK 集成</li>
+              <li>用户属性字段对齐（语言、城市、口味偏好、会员等级）</li>
+              <li>WhatsApp Business 账号报备</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">第 2 周：旅程构建</div>
+          <div class="card-body">
+            <ul>
+              <li>搭建旅程 1（新客首单激活）</li>
+              <li>搭建旅程 3（弃单挽回）</li>
+              <li>配置频控 + 可发送时间</li>
+              <li>文案本地化（AI 多语言生成）</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">第 3 周：数据跑量</div>
+          <div class="card-body">
+            <ul>
+              <li>旅程全量上线</li>
+              <li>实时监控送达率、点击率、转化率</li>
+              <li>A/B 测试不同话术和发送时机</li>
+              <li>问题修复与迭代</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">第 4 周：复盘扩面</div>
+          <div class="card-body">
+            <ul>
+              <li>输出测试报告（各旅程 ROI）</li>
+              <li>扩展旅程 2（沉睡唤醒）+ 旅程 4（新品推送）</li>
+              <li>制定后续季度运营路线图</li>
+              <li>确认扩面到更多市场的优先级</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CTA -->
+    <section class="section">
+      <h2>九、下一步</h2>
+      <div class="grid grid-3">
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span class="step-num">1</span>
+          <div><strong>对齐</strong><p class="small muted">明确数据打通优先级和首批试点市场</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span class="step-num">2</span>
+          <div><strong>开发对接</strong><p class="small muted">根据 MA 交付团队提供的埋点方案进行 SDK 集成</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span class="step-num">3</span>
+          <div><strong>测试验证</strong><p class="small muted">开通测试 VIP，搭建旅程上线验证效果</p></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      EngageLab MA · 新式茶饮出海行业增长方案 · 基于 2024-2026 年行业公开案例与报告综合测算
+    </footer>
+  </main>
+
+  <script>
+  (function(){
+    // ========== CHART: Channel Penetration ==========
+    function drawBarChart(containerId, data, opts){
+      var el = document.getElementById(containerId);
+      if(!el) return;
+      var W = opts.width || 680, H = opts.height || 250;
+      var ml = opts.ml || 100, mr = opts.mr || 20, mt = opts.mt || 30, mb = opts.mb || 50;
+      var iw = W - ml - mr, ih = H - mt - mb;
+      var groups = data.map(function(d){return d.label;});
+      var keys = opts.keys;
+      var colors = opts.colors;
+      var maxVal = 0;
+      data.forEach(function(d){ keys.forEach(function(k){ if(d[k]>maxVal) maxVal=d[k]; }); });
+      maxVal = Math.ceil(maxVal/10)*10;
+      var groupW = iw / groups.length;
+      var barW = Math.min(groupW/(keys.length+1), 22);
+      var svg = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+      // grid
+      for(var i=0;i<=5;i++){
+        var y = mt + ih - (ih*i/5);
+        var v = Math.round(maxVal*i/5);
+        svg += '<line x1="'+ml+'" y1="'+y+'" x2="'+(W-mr)+'" y2="'+y+'" stroke="#e5e7eb" stroke-width="0.5"/>';
+        svg += '<text x="'+(ml-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="8" fill="#9ca3af">'+v+'%</text>';
+      }
+      // bars
+      data.forEach(function(d, gi){
+        var gx = ml + gi*groupW + groupW/2;
+        keys.forEach(function(k, ki){
+          var bx = gx - (keys.length*barW)/2 + ki*barW + 1;
+          var bh = (d[k]/maxVal)*ih;
+          var by = mt + ih - bh;
+          svg += '<rect x="'+bx+'" y="'+by+'" width="'+(barW-2)+'" height="'+bh+'" rx="2" fill="'+colors[ki]+'" opacity="0.85"/>';
+          if(d[k]>0) svg += '<text x="'+(bx+(barW-2)/2)+'" y="'+(by-3)+'" text-anchor="middle" font-size="7" fill="'+colors[ki]+'">'+d[k]+'</text>';
+        });
+        svg += '<text x="'+gx+'" y="'+(H-mb+14)+'" text-anchor="middle" font-size="8" fill="#6b7280">'+d.label+'</text>';
+      });
+      svg += '</svg>';
+      el.innerHTML = svg;
+      // legend
+      var legend = '<div class="chart-legend">';
+      opts.keyLabels.forEach(function(l,i){
+        legend += '<div class="leg-item"><div class="dot" style="background:'+colors[i]+'"></div>'+l+'</div>';
+      });
+      legend += '</div>';
+      el.innerHTML += legend;
+    }
+
+    drawBarChart('chart-channel-penetration', [
+      {label:'马来西亚', whatsapp:93, push:72, sms:55, email:48, line:5},
+      {label:'印尼', whatsapp:88, push:65, sms:60, email:35, line:3},
+      {label:'新加坡', whatsapp:85, push:78, sms:50, email:62, line:8},
+      {label:'泰国', whatsapp:42, push:68, sms:45, email:30, line:92},
+      {label:'韩国', whatsapp:12, push:82, sms:75, email:55, line:15},
+      {label:'日本', whatsapp:5, push:70, sms:65, email:52, line:82},
+      {label:'美国', whatsapp:28, push:75, sms:72, email:68, line:3},
+      {label:'法国', whatsapp:55, push:65, sms:58, email:72, line:2}
+    ], {
+      width:720, height:250, ml:50, mr:20, mt:25, mb:45,
+      keys:['whatsapp','push','sms','email','line'],
+      colors:['#25D366','#2563eb','#d97706','#6366f1','#06b6d4'],
+      keyLabels:['WhatsApp','App Push','SMS','Email','LINE']
+    });
+
+    // ========== CHART: Funnel ==========
+    function drawFunnelChart(containerId, data){
+      var el = document.getElementById(containerId);
+      if(!el) return;
+      var W = 700, H = 240, ml = 140, mr = 20, mt = 20, mb = 30;
+      var iw = W - ml - mr, ih = H - mt - mb;
+      var barH = Math.min(ih / data.length - 8, 28);
+      var maxVal = 100;
+      var svg = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+      data.forEach(function(d, i){
+        var y = mt + i * (barH + 8);
+        var w1 = (d.before / maxVal) * iw * 0.48;
+        var w2 = (d.after / maxVal) * iw * 0.48;
+        svg += '<text x="'+(ml-8)+'" y="'+(y+barH/2+4)+'" text-anchor="end" font-size="9" fill="#374151">'+d.label+'</text>';
+        svg += '<rect x="'+ml+'" y="'+y+'" width="'+w1+'" height="'+barH+'" rx="3" fill="#94a3b8" opacity="0.6"/>';
+        svg += '<text x="'+(ml+w1+4)+'" y="'+(y+barH/2+3)+'" font-size="8" fill="#64748b">'+d.before+'%</text>';
+        var x2 = ml + iw*0.52;
+        svg += '<rect x="'+x2+'" y="'+y+'" width="'+w2+'" height="'+barH+'" rx="3" fill="#16a34a" opacity="0.8"/>';
+        svg += '<text x="'+(x2+w2+4)+'" y="'+(y+barH/2+3)+'" font-size="8" fill="#16a34a" font-weight="600">'+d.after+'%</text>';
+        if(d.uplift) svg += '<text x="'+(W-mr-5)+'" y="'+(y+barH/2+3)+'" text-anchor="end" font-size="8" fill="#16a34a" font-weight="700">'+d.uplift+'</text>';
+      });
+      svg += '<text x="'+(ml+iw*0.24)+'" y="'+(H-5)+'" text-anchor="middle" font-size="9" fill="#94a3b8">当前</text>';
+      svg += '<text x="'+(ml+iw*0.76)+'" y="'+(H-5)+'" text-anchor="middle" font-size="9" fill="#16a34a">MA 自动化后</text>';
+      svg += '</svg>';
+      el.innerHTML = svg;
+    }
+
+    drawFunnelChart('chart-funnel', [
+      {label:'App 注册→首单', before:35, after:49, uplift:'+40%'},
+      {label:'首单→30日复购', before:28, after:40, uplift:'+43%'},
+      {label:'弃单恢复率', before:8, after:29, uplift:'3.6×'},
+      {label:'沉睡会员唤醒率', before:15, after:38, uplift:'+51%'},
+      {label:'新品首周尝鲜率', before:12, after:20, uplift:'+16%'}
+    ]);
+
+    // ========== CHART: Benchmark ==========
+    function drawBenchmarkChart(containerId, data){
+      var el = document.getElementById(containerId);
+      if(!el) return;
+      var W = 680, H = 220, ml = 160, mr = 60, mt = 20, mb = 30;
+      var iw = W - ml - mr, ih = H - mt - mb;
+      var barH = Math.min(ih / data.length - 6, 22);
+      var maxVal = 100;
+      var svg = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+      data.forEach(function(d, i){
+        var y = mt + i * (barH + 6);
+        var w1 = (d.baseline / maxVal) * iw;
+        var w2 = (d.target / maxVal) * iw;
+        svg += '<text x="'+(ml-8)+'" y="'+(y+barH/2+4)+'" text-anchor="end" font-size="8.5" fill="#374151">'+d.label+'</text>';
+        svg += '<rect x="'+ml+'" y="'+(y+2)+'" width="'+w2+'" height="'+(barH-4)+'" rx="3" fill="#dcfce7"/>';
+        svg += '<rect x="'+ml+'" y="'+(y+2)+'" width="'+w1+'" height="'+(barH-4)+'" rx="3" fill="#94a3b8" opacity="0.7"/>';
+        svg += '<text x="'+(ml+w2+4)+'" y="'+(y+barH/2+3)+'" font-size="8" fill="#16a34a" font-weight="600">'+d.target+'%</text>';
+      });
+      svg += '</svg>';
+      var legend = '<div class="chart-legend"><div class="leg-item"><div class="dot" style="background:#94a3b8"></div>行业基准</div><div class="leg-item"><div class="dot" style="background:#dcfce7;border:1px solid #16a34a"></div>MA 自动化后预期</div></div>';
+      el.innerHTML = svg + legend;
+    }
+
+    drawBenchmarkChart('chart-benchmark', [
+      {label:'注册→首单转化率', baseline:35, target:49},
+      {label:'30日复购率', baseline:28, target:40},
+      {label:'沉睡会员唤醒率', baseline:15, target:38},
+      {label:'Push 点击率', baseline:4, target:12},
+      {label:'新品首周尝鲜率', baseline:12, target:20},
+      {label:'生日券核销率', baseline:30, target:60}
+    ]);
+
+    // ========== JOURNEY DAGs ==========
+    function drawJourney(containerId, nodes, edges){
+      var el = document.getElementById(containerId);
+      if(!el) return;
+      var kindColor = {
+        entry:'#2563eb', branch:'#d97706', channel:'#16a34a',
+        wait:'#6b7280', sendtime:'#8b5cf6', exitOk:'#16a34a', exitEnd:'#6b7280'
+      };
+      var kindShape = {entry:'rect', branch:'diamond', channel:'rect', wait:'rect', sendtime:'rect', exitOk:'rect', exitEnd:'rect'};
+      var nodeW = 140, nodeH = 44, gapX = 40, gapY = 56;
+
+      // layout
+      var cols = {}, maxCol = 0, maxRow = 0;
+      nodes.forEach(function(n){
+        if(n.col > maxCol) maxCol = n.col;
+        if(n.row > maxRow) maxRow = n.row;
+      });
+      var W = (maxCol+1)*(nodeW+gapX)+gapX+40;
+      var H = (maxRow+1)*(nodeH+gapY)+gapY+20;
+      var svg = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" style="font-family:-apple-system,BlinkMacSystemFont,sans-serif">';
+
+      function getPos(n){ return {x: 20+n.col*(nodeW+gapX)+nodeW/2, y: 10+n.row*(nodeH+gapY)+nodeH/2}; }
+
+      // edges
+      edges.forEach(function(e){
+        var from = nodes.find(function(n){return n.id===e.from;});
+        var to = nodes.find(function(n){return n.id===e.to;});
+        if(!from||!to) return;
+        var p1 = getPos(from), p2 = getPos(to);
+        var y1 = p1.y+nodeH/2, y2 = p2.y-nodeH/2;
+        var mx = (p1.x+p2.x)/2, my = (y1+y2)/2;
+        if(p1.x === p2.x){
+          svg += '<line x1="'+p1.x+'" y1="'+y1+'" x2="'+p2.x+'" y2="'+y2+'" stroke="#d1d5db" stroke-width="1.2" marker-end="url(#arr)"/>';
+        } else {
+          svg += '<path d="M'+p1.x+' '+y1+' L'+p1.x+' '+my+' L'+p2.x+' '+my+' L'+p2.x+' '+y2+'" fill="none" stroke="#d1d5db" stroke-width="1.2" marker-end="url(#arr)"/>';
+        }
+        if(e.label){
+          var lx = (p1.x===p2.x) ? p1.x+4 : (p1.x+p2.x)/2;
+          var ly = (p1.x===p2.x) ? (y1+y2)/2 : my-4;
+          svg += '<text x="'+lx+'" y="'+ly+'" font-size="7" fill="#6b7280" text-anchor="middle">'+e.label+'</text>';
+        }
+      });
+
+      // arrow marker
+      svg += '<defs><marker id="arr" viewBox="0 0 6 6" refX="6" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#d1d5db"/></marker></defs>';
+
+      // nodes
+      nodes.forEach(function(n){
+        var pos = getPos(n);
+        var x = pos.x - nodeW/2, y = pos.y - nodeH/2;
+        var c = kindColor[n.kind] || '#6b7280';
+        if(n.kind==='branch'){
+          svg += '<rect x="'+x+'" y="'+y+'" width="'+nodeW+'" height="'+nodeH+'" rx="4" fill="#fff" stroke="'+c+'" stroke-width="1.5" stroke-dasharray="4 2"/>';
+        } else {
+          svg += '<rect x="'+x+'" y="'+y+'" width="'+nodeW+'" height="'+nodeH+'" rx="6" fill="#fff" stroke="'+c+'" stroke-width="1.5"/>';
+        }
+        svg += '<text x="'+pos.x+'" y="'+(pos.y-4)+'" text-anchor="middle" font-size="8.5" font-weight="600" fill="'+c+'">'+n.title+'</text>';
+        if(n.sub){
+          var subLines = n.sub.length > 18 ? [n.sub.substring(0,18), n.sub.substring(18,36)] : [n.sub];
+          subLines.forEach(function(sl, si){
+            svg += '<text x="'+pos.x+'" y="'+(pos.y+8+si*10)+'" text-anchor="middle" font-size="7" fill="#6b7280">'+sl+'</text>';
+          });
+        }
+      });
+
+      svg += '</svg>';
+      el.innerHTML = svg;
+    }
+
+    // Journey 1: New Customer First Order
+    drawJourney('dag-j1', [
+      {id:'start', kind:'entry', title:'开始', sub:'事件: 用户注册成功', col:0, row:0},
+      {id:'wait1', kind:'wait', title:'等待事件', sub:'等待 1 小时: 是否下单', col:0, row:1},
+      {id:'exit1', kind:'exitOk', title:'结束（已转化）', sub:'自行完成首单', col:1, row:1},
+      {id:'time1', kind:'sendtime', title:'可发送时间', sub:'每天 9:00-21:00 终端时区', col:0, row:2},
+      {id:'push1', kind:'channel', title:'App Push', sub:'欢迎+首单券领取引导', col:0, row:3},
+      {id:'wait2', kind:'wait', title:'等待事件', sub:'等待 24 小时: 是否下单', col:0, row:4},
+      {id:'exit2', kind:'exitOk', title:'结束（已转化）', sub:'完成首单', col:1, row:4},
+      {id:'wa1', kind:'channel', title:'WhatsApp', sub:'菜单推荐+限时首单优惠', col:0, row:5},
+      {id:'wait3', kind:'wait', title:'等待事件', sub:'等待 48 小时: 是否下单', col:0, row:6},
+      {id:'push2', kind:'channel', title:'App Push', sub:'最后提醒: 优惠即将过期', col:0, row:7},
+      {id:'end', kind:'exitEnd', title:'结束', sub:'进入沉睡召回旅程', col:0, row:8}
+    ], [
+      {from:'start', to:'wait1'},
+      {from:'wait1', to:'exit1', label:'已下单'},
+      {from:'wait1', to:'time1', label:'未下单'},
+      {from:'time1', to:'push1'},
+      {from:'push1', to:'wait2'},
+      {from:'wait2', to:'exit2', label:'已下单'},
+      {from:'wait2', to:'wa1', label:'未下单'},
+      {from:'wa1', to:'wait3'},
+      {from:'wait3', to:'push2', label:'未下单'},
+      {from:'wait3', to:'exit2', label:'已下单'},
+      {from:'push2', to:'end'}
+    ]);
+
+    // Journey 2: Dormant Member Awakening
+    drawJourney('dag-j2', [
+      {id:'start', kind:'entry', title:'开始', sub:'属性: 最后下单距今超过15天', col:0, row:0},
+      {id:'branch1', kind:'branch', title:'条件分支', sub:'属性: 最后下单距今天数', col:0, row:1},
+      {id:'push15', kind:'channel', title:'App Push（轻度）', sub:'新品推荐+小额优惠券', col:0, row:2},
+      {id:'push30', kind:'channel', title:'App Push（中度）', sub:'专属回归礼+限时折扣', col:1, row:2},
+      {id:'wa60', kind:'channel', title:'WhatsApp（重度）', sub:'关怀问候+大额回归券', col:2, row:2},
+      {id:'wait1', kind:'wait', title:'等待事件', sub:'等待 5 天: 是否下单', col:0, row:3},
+      {id:'wait2', kind:'wait', title:'等待事件', sub:'等待 5 天: 是否下单', col:1, row:3},
+      {id:'wait3', kind:'wait', title:'等待事件', sub:'等待 7 天: 是否下单', col:2, row:3},
+      {id:'exit1', kind:'exitOk', title:'结束（已唤醒）', sub:'完成下单', col:1, row:4},
+      {id:'push2', kind:'channel', title:'App Push', sub:'最后机会: 券即将过期', col:0, row:5},
+      {id:'end', kind:'exitEnd', title:'结束', sub:'标记为深度流失', col:0, row:6}
+    ], [
+      {from:'start', to:'branch1'},
+      {from:'branch1', to:'push15', label:'15-29天'},
+      {from:'branch1', to:'push30', label:'30-59天'},
+      {from:'branch1', to:'wa60', label:'≥60天'},
+      {from:'push15', to:'wait1'},
+      {from:'push30', to:'wait2'},
+      {from:'wa60', to:'wait3'},
+      {from:'wait1', to:'exit1', label:'已下单'},
+      {from:'wait2', to:'exit1', label:'已下单'},
+      {from:'wait3', to:'exit1', label:'已下单'},
+      {from:'wait1', to:'push2', label:'未下单'},
+      {from:'wait2', to:'push2', label:'未下单'},
+      {from:'wait3', to:'push2', label:'未下单'},
+      {from:'push2', to:'end'}
+    ]);
+
+    // Journey 3: Cart Abandonment Recovery
+    drawJourney('dag-j3', [
+      {id:'start', kind:'entry', title:'开始', sub:'事件: 加入购物车', col:0, row:0},
+      {id:'wait1', kind:'wait', title:'等待事件', sub:'等待 30 分钟: 是否下单', col:0, row:1},
+      {id:'exit1', kind:'exitOk', title:'结束（已转化）', sub:'自行完成下单', col:1, row:1},
+      {id:'time1', kind:'sendtime', title:'可发送时间', sub:'每天 9:00-21:00 终端时区', col:0, row:2},
+      {id:'push1', kind:'channel', title:'App Push', sub:'购物车里有好喝的在等你', col:0, row:3},
+      {id:'wait2', kind:'wait', title:'等待事件', sub:'等待 2 小时: 是否下单', col:0, row:4},
+      {id:'exit2', kind:'exitOk', title:'结束（已转化）', sub:'完成下单', col:1, row:4},
+      {id:'branch1', kind:'branch', title:'条件分支', sub:'属性: 是否有 WhatsApp', col:0, row:5},
+      {id:'wa1', kind:'channel', title:'WhatsApp', sub:'限时优惠: 30分钟内下单享折扣', col:0, row:6},
+      {id:'sms1', kind:'channel', title:'SMS', sub:'限时优惠短信提醒', col:1, row:6},
+      {id:'end', kind:'exitEnd', title:'结束', sub:'', col:0, row:7}
+    ], [
+      {from:'start', to:'wait1'},
+      {from:'wait1', to:'exit1', label:'已下单'},
+      {from:'wait1', to:'time1', label:'未下单'},
+      {from:'time1', to:'push1'},
+      {from:'push1', to:'wait2'},
+      {from:'wait2', to:'exit2', label:'已下单'},
+      {from:'wait2', to:'branch1', label:'未下单'},
+      {from:'branch1', to:'wa1', label:'有 WhatsApp'},
+      {from:'branch1', to:'sms1', label:'无 WhatsApp'},
+      {from:'wa1', to:'end'},
+      {from:'sms1', to:'end'}
+    ]);
+
+    // Journey 4: New Product Launch
+    drawJourney('dag-j4', [
+      {id:'start', kind:'entry', title:'开始', sub:'属性: 最后下单距今不超过60天', col:0, row:0},
+      {id:'branch1', kind:'branch', title:'条件分支', sub:'属性: 口味偏好', col:0, row:1},
+      {id:'push_milk', kind:'channel', title:'App Push（奶茶党）', sub:'AI文案: 新品奶茶推荐', col:0, row:2},
+      {id:'push_fruit', kind:'channel', title:'App Push（果茶党）', sub:'AI文案: 当季鲜果茶推荐', col:1, row:2},
+      {id:'push_pure', kind:'channel', title:'App Push（纯茶/咖啡）', sub:'AI文案: 新品纯茶推荐', col:2, row:2},
+      {id:'wait1', kind:'wait', title:'等待事件', sub:'等待 3 天: 是否购买新品', col:1, row:3},
+      {id:'exit1', kind:'exitOk', title:'结束（已购买）', sub:'购买新品成功', col:2, row:3},
+      {id:'push2', kind:'channel', title:'App Push', sub:'限时尝鲜价即将结束', col:1, row:4},
+      {id:'end', kind:'exitEnd', title:'结束', sub:'', col:1, row:5}
+    ], [
+      {from:'start', to:'branch1'},
+      {from:'branch1', to:'push_milk', label:'奶茶'},
+      {from:'branch1', to:'push_fruit', label:'果茶'},
+      {from:'branch1', to:'push_pure', label:'纯茶/咖啡'},
+      {from:'push_milk', to:'wait1'},
+      {from:'push_fruit', to:'wait1'},
+      {from:'push_pure', to:'wait1'},
+      {from:'wait1', to:'exit1', label:'已购买'},
+      {from:'wait1', to:'push2', label:'未购买'},
+      {from:'push2', to:'end'}
+    ]);
+
+    // Journey 5: New Store Opening
+    drawJourney('dag-j5', [
+      {id:'start', kind:'entry', title:'开始', sub:'属性: 用户城市=新店城市', col:0, row:0},
+      {id:'time1', kind:'sendtime', title:'可发送时间', sub:'每天 10:00-19:00 终端时区', col:0, row:1},
+      {id:'push1', kind:'channel', title:'App Push', sub:'新店开业倒计时+专属优惠预告', col:0, row:2},
+      {id:'wait1', kind:'wait', title:'等待', sub:'等待至开业日', col:0, row:3},
+      {id:'push2', kind:'channel', title:'App Push', sub:'今日开业! 到店享开业特惠', col:0, row:4},
+      {id:'branch1', kind:'branch', title:'条件分支', sub:'属性: 是否有 WhatsApp', col:0, row:5},
+      {id:'wa1', kind:'channel', title:'WhatsApp', sub:'门店定位+开业排队实况', col:0, row:6},
+      {id:'sms1', kind:'channel', title:'SMS', sub:'开业优惠短信', col:1, row:6},
+      {id:'wait2', kind:'wait', title:'等待事件', sub:'等待 7 天: 是否到新店消费', col:0, row:7},
+      {id:'exit1', kind:'exitOk', title:'结束（已到店）', sub:'', col:1, row:7},
+      {id:'end', kind:'exitEnd', title:'结束', sub:'', col:0, row:8}
+    ], [
+      {from:'start', to:'time1'},
+      {from:'time1', to:'push1'},
+      {from:'push1', to:'wait1'},
+      {from:'wait1', to:'push2'},
+      {from:'push2', to:'branch1'},
+      {from:'branch1', to:'wa1', label:'有 WhatsApp'},
+      {from:'branch1', to:'sms1', label:'无'},
+      {from:'wa1', to:'wait2'},
+      {from:'sms1', to:'wait2'},
+      {from:'wait2', to:'exit1', label:'已消费'},
+      {from:'wait2', to:'end', label:'未消费'}
+    ]);
+
+    // Journey 6: Birthday
+    drawJourney('dag-j6', [
+      {id:'start', kind:'entry', title:'开始', sub:'属性: 生日日期 每年当日', col:0, row:0},
+      {id:'time1', kind:'sendtime', title:'可发送时间', sub:'每天 9:00-10:00 终端时区', col:0, row:1},
+      {id:'push1', kind:'channel', title:'App Push', sub:'生日快乐! 专属生日饮品券已到账', col:0, row:2},
+      {id:'wait1', kind:'wait', title:'等待事件', sub:'等待 3 天: 是否使用生日券', col:0, row:3},
+      {id:'exit1', kind:'exitOk', title:'结束（已核销）', sub:'生日券已使用', col:1, row:3},
+      {id:'wa1', kind:'channel', title:'WhatsApp / Push', sub:'生日券还有2天过期哦', col:0, row:4},
+      {id:'wait2', kind:'wait', title:'等待事件', sub:'等待 2 天: 是否使用', col:0, row:5},
+      {id:'exit2', kind:'exitOk', title:'结束（已核销）', sub:'', col:1, row:5},
+      {id:'end', kind:'exitEnd', title:'结束', sub:'券过期归档', col:0, row:6}
+    ], [
+      {from:'start', to:'time1'},
+      {from:'time1', to:'push1'},
+      {from:'push1', to:'wait1'},
+      {from:'wait1', to:'exit1', label:'已使用'},
+      {from:'wait1', to:'wa1', label:'未使用'},
+      {from:'wa1', to:'wait2'},
+      {from:'wait2', to:'exit2', label:'已使用'},
+      {from:'wait2', to:'end', label:'未使用'}
+    ]);
+
+  })();
+  </script>
+</body>
+</html>
